@@ -1,21 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from "styled-components"
+import GlobalStyle from "../assets/style/globalStyle"
+import SectionStart from "../components/sections/1start"
+import SectionAbout from "../components/sections/2about"
+import SectionServices from "../components/sections/3services"
+import SectionReferences from "../components/sections/4references"
+import SectionContact from "../components/sections/5contact"
+import SectionFooter from "../components/sections/6footer"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const AppWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: coral;
+`
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <>
+    <GlobalStyle />
+    <AppWrapper>
+      Hello People
+      <SectionStart />
+      <SectionAbout />
+      <SectionServices />
+      <SectionReferences />
+      <SectionContact />
+      <SectionFooter />
+    </AppWrapper>
+  </>
 )
 
 export default IndexPage
