@@ -16,7 +16,6 @@ const StyledMobileNavigation = styled.nav`
   background-color: rgba(0, 0, 0, 0.95);
   color: white;
   font-size: 2rem;
-  padding-top: 20px;
   @media (min-width: 720px) {
     display: none;
   }
@@ -32,24 +31,44 @@ const StyledMobileNavigation = styled.nav`
     }
   }
   button {
+    margin: 0;
     background-color: transparent;
     outline: none;
     border: none;
     color: ${props => (props.navigationShowed ? "yellow" : "black")};
     font-size: 2rem;
     transition: 0.5s;
-    transform: ${props =>
-      props.navigationShowed ? "translateX(0)" : "translateX(-50px)"};
   }
+`
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+  padding-left: 10px;
+  font-weight: bold;
+  padding: 0;
+  background-color: ${props =>
+    props.navigationShowed ? "black" : "transparent"};
+  border-bottom: solid 3px
+    ${props => (props.navigationShowed ? "yellow" : "black")};
+  transition: 0.5s;
+  transform: ${props =>
+    props.navigationShowed ? "translateX(0)" : "translateX(-45px)"};
 `
 
 const MobileNavigation = () => {
   const [navigationShowed, setNavigationShowed] = useState(false)
   return (
     <StyledMobileNavigation navigationShowed={navigationShowed}>
-      <button onClick={() => setNavigationShowed(!navigationShowed)}>
-        {navigationShowed ? <FaArrowRight /> : <FaBars />}
-      </button>
+      <ButtonWrapper navigationShowed={navigationShowed}>
+        {" "}
+        <button onClick={() => setNavigationShowed(!navigationShowed)}>
+          {navigationShowed ? <FaArrowRight /> : <FaBars />}
+        </button>
+      </ButtonWrapper>
+
       <ul>
         <li onClick={() => scrollTo("#start")}>Start</li>
         <li onClick={() => scrollTo("#about")}>O nas</li>

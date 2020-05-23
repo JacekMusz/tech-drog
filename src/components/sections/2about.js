@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Image from "gatsby-image"
-import SectionServices from "../../components/sections/3services"
 
 const Section = styled.section`
   min-height: 100vh;
@@ -11,24 +10,6 @@ const Section = styled.section`
   position: relative;
   margin-top: 100vh;
   color: white;
-`
-
-const LeftDecoration = styled.div`
-  margin-left: 20px;
-  width: 10%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  span {
-    display: block;
-    height: 100%;
-    width: 25%;
-    margin-left: 20%;
-    background-color: yellow;
-    opacity: 0.4;
-  }
 `
 
 const StyledImage = styled(Image)`
@@ -64,12 +45,51 @@ const SectionTitle = styled.h2`
   }
 `
 
-const Article_1 = styled.div`
+const ARTICLE_1 = styled.div`
   width: 84%;
   padding: 7%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
   font-weight: bold;
+  ul {
+    li {
+      list-style: none;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      &::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 2px;
+        background-color: black;
+        transform: translateX(-10px);
+      }
+    }
+  }
+`
+
+const ARTICLE_2 = styled.div`
+  position: relative;
+  .article__title {
+    margin-left: 40%;
+    text-align: left;
+    display: block;
+    position: relative;
+    margin-right: 10%;
+    font-size: 2.2rem;
+    width: 70%;
+    padding: 0;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      background-color: yellow;
+      bottom: -5px;
+      transform: translateX(-10%);
+    }
+  }
 `
 
 const sectionAbout = props => {
@@ -78,7 +98,7 @@ const sectionAbout = props => {
       <StyledImage fluid={props.fluid} />
       <SectionContent id="about" className="content">
         <SectionTitle>O nas</SectionTitle>
-        <Article_1>
+        <ARTICLE_1>
           {" "}
           Biuro projektowe „Tech-Drog” Arkadiusz Pydzik powstało 2008 roku.
           Świadczymy usługi w zakresie projektowania infrastruktury drogowej dla
@@ -87,19 +107,25 @@ const sectionAbout = props => {
           z wykwalifikowanymi specjalistami z branży drogowej jak i branż
           infrastruktury towarzyszącej:{" "}
           <ul>
-            <li> wodno-kanalizacyjnej</li>
-            <li> energetycznej</li>
-            <li> teletechnicznej</li>
-            <li>gazowej</li>
+            <li> wodno-kanalizacyjnej,</li>
+            <li> energetycznej,</li>
+            <li> teletechnicznej,</li>
+            <li> gazowej.</li>
           </ul>
-        </Article_1>
-        <SectionServices />
+        </ARTICLE_1>
+        <ARTICLE_2 id="services">
+          <h3 className="article__title">Nasze usługi</h3>
+          <p>
+            świadczy kompleksowe usługi w zakresie wykonania dokumentacji
+            projektowej dla: dróg i ulic wraz z infrastrukturą towarzyszącą;
+            zjazdów indywidualnych jak i publicznych z dróg każdej kategorii;
+            parkingów i zatok postojowych; chodników i ścieżek rowerowych.
+            Ponadto posiadamy bogate doświadczenie w przygotowaniu projektów
+            stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
+            niezbędnymi uzgodnieniami. Zapewniamy też nadzory inwestorskie.
+          </p>
+        </ARTICLE_2>
       </SectionContent>
-
-      {/* <LeftDecoration>
-        <span></span>
-        <span></span>
-      </LeftDecoration> */}
     </Section>
   )
 }
