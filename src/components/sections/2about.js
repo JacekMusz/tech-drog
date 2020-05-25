@@ -52,7 +52,7 @@ const SectionContent = styled.div`
         display: block;
         position: absolute;
         height: 5px;
-        width: 50vw;
+        width: 35vw;
         background-color: yellow;
         bottom: -15px;
       }
@@ -100,10 +100,11 @@ const SectionContent = styled.div`
     .article-two {
       margin-left: 25vw;
       .article__title {
-        transform: translateX(-25vw);
-        text-align: right;
+        transform: translateX(-30vw);
+        text-align: center;
         &:before {
-          transform: translateX(55vw);
+          transform: translateX(30vw);
+          width: 80vw;
         }
       }
     }
@@ -157,11 +158,11 @@ const sectionAbout = props => {
             </div>
           </article>
           <article id="services" className="article article-three">
-            <h3 className="article__title">Ponadto...</h3>
+            <h3 className="article__title">Ponadto . . .</h3>
             <div className="text">
-              posiadamy bogate doświadczenie w przygotowaniu projektów stałej i
-              tymczasowej organizacji ruchu wraz ze wszystkimi niezbędnymi
-              uzgodnieniami.
+              . . . posiadamy bogate doświadczenie w przygotowaniu projektów
+              stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
+              niezbędnymi uzgodnieniami.
               <br />
               <br />
               <div className="last-acapit">

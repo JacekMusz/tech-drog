@@ -37,17 +37,16 @@ const Section = styled.section`
   .motto {
     position: absolute;
     right: 5%;
-    top: 30%;
+    top: 33%;
     z-index: 50;
     font-size: 0.8rem;
     color: black;
     overflow: hidden;
-    padding: 5px;
+    padding: 5px 0;
     &__text {
       opacity: 0;
       transform: translateY(100%);
       font-style: italic;
-      font-size: 1rem;
       animation: mottoAnimation 1s 1.8s both 1;
     }
 
@@ -106,8 +105,8 @@ const Section = styled.section`
       }
     }
     .motto {
-      font-size: 1.05rem;
-      top: 28%;
+      font-size: 1.2rem;
+      top: 33%;
     }
   }
   @media (min-width: 1199px) {
@@ -121,7 +120,8 @@ const Section = styled.section`
     }
     .motto {
       font-size: 1.2rem;
-      top: 30%;
+      top: 33%;
+      right: 15%;
     }
   }
   @media (min-width: 1599px) {
@@ -136,8 +136,8 @@ const Section = styled.section`
     }
     .motto {
       font-size: 1.3rem;
-      top: 30%;
-      right: 10%;
+      top: 33%;
+      right: 15%;
     }
   }
   @keyframes titleAnimation {
