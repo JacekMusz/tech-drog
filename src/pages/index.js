@@ -19,7 +19,7 @@ export const query = graphql`
     }
     image2: file(name: { eq: "background" }) {
       childImageSharp {
-        fluid(quality: 100) {
+        fluid(quality: 20) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }

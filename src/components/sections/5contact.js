@@ -1,25 +1,25 @@
 import React from "react"
 import styled from "styled-components"
 
-import VisibilitySensor from "react-visibility-sensor"
+//import VisibilitySensor from "react-visibility-sensor"
 
 const Section = styled.section`
-  min-height: 100vh;
+  min-height: 150vh;
   width: 100%;
 `
 
-function onChange(isVisible) {
-  console.log("Element is now %s", isVisible ? "visible" : "hidden")
-}
+// function onChange(isVisible) {
+//   console.log("Element is now %s", isVisible ? "visible" : "hidden")
+// }
 
 const sectionContact = () => {
   return (
     <div id="contact">
       <Section>
         contact
-        <VisibilitySensor onChange={onChange}>
+        {/* <VisibilitySensor onChange={onChange}>
           <div>...content goes here...</div>
-        </VisibilitySensor>
+        </VisibilitySensor> */}
       </Section>
     </div>
   )

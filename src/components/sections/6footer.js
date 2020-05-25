@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 const Section = styled.section`
-  height: 50vh;
+  height: 20vh;
   background-color: black;
   width: 100%;
   z-index: 20;

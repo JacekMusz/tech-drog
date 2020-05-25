@@ -20,22 +20,18 @@ const Section = styled.section`
     left: 5%;
     z-index: 50;
     font-weight: bold;
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      z-index: 10;
-      width: 10px;
-      height: 100%;
-      border-right: 1px solid black;
-      background-color: yellow;
-      transform: translate(-15px, 0);
-    }
+    border-left: 10px solid yellow;
+    padding-left: 10px;
+    overflow: hidden;
     &__main {
       font-size: 1.2rem;
+      transform: translateX(-100%);
+      animation: titleAnimation 1s both 1;
     }
     &__subtitle {
       font-size: 1rem;
+      transform: translateX(-100%);
+      animation: titleAnimation 1s 0.5s both 1;
     }
   }
   .motto {
@@ -45,11 +41,17 @@ const Section = styled.section`
     z-index: 50;
     font-size: 0.8rem;
     color: black;
+    overflow: hidden;
+    padding: 5px;
     &__text {
+      opacity: 0;
+      transform: translateY(100%);
       font-style: italic;
+      font-size: 1rem;
+      animation: mottoAnimation 1s 1.8s both 1;
     }
 
-    &::before {
+    &::after {
       content: "";
       display: block;
       position: absolute;
@@ -57,8 +59,96 @@ const Section = styled.section`
       margin-left: 40%;
       width: 60%;
       height: 3px;
-      bottom: 10px;
+      bottom: 0px;
+      opacity: 0;
+      transform: translateY(100%);
       border-bottom: solid 1px black;
+      animation: mottoAnimation 1s 1s both 1;
+    }
+  }
+  /* Media for Galaxy S5 (360px) and iphone 6/7/8 (375) */
+  @media (min-width: 359px) {
+    .titles {
+      &__main {
+        font-size: 1.4rem;
+      }
+      &__subtitle {
+        font-size: 1.2rem;
+      }
+    }
+    .motto {
+      font-size: 0.95rem;
+    }
+  }
+  /* Media for Pixel 2 (411px) and iphone 6/7/8 plus (414px) */
+  @media (min-width: 410px) {
+    .titles {
+      &__main {
+        font-size: 1.6rem;
+      }
+      &__subtitle {
+        font-size: 1.3rem;
+      }
+    }
+    .motto {
+      font-size: 1rem;
+      top: 30%;
+    }
+  }
+  /* Media for iPad (768px) */
+  @media (min-width: 767px) {
+    .titles {
+      &__main {
+        font-size: 2rem;
+      }
+      &__subtitle {
+        font-size: 1.7rem;
+      }
+    }
+    .motto {
+      font-size: 1.05rem;
+      top: 28%;
+    }
+  }
+  @media (min-width: 1199px) {
+    .titles {
+      &__main {
+        font-size: 2.5rem;
+      }
+      &__subtitle {
+        font-size: 2rem;
+      }
+    }
+    .motto {
+      font-size: 1.2rem;
+      top: 30%;
+    }
+  }
+  @media (min-width: 1599px) {
+    .titles {
+      left: 10%;
+      &__main {
+        font-size: 2.7rem;
+      }
+      &__subtitle {
+        font-size: 2.1rem;
+      }
+    }
+    .motto {
+      font-size: 1.3rem;
+      top: 30%;
+      right: 10%;
+    }
+  }
+  @keyframes titleAnimation {
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes mottoAnimation {
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
     }
   }
 `
@@ -71,28 +161,27 @@ const StyledImage = styled(Image)`
 `
 
 const SectionStart = props => {
-  const [welcomePageActive, setWelcomPageActive] = useState(true)
+  const [pageTopPosition, setPageTopPosition] = useState(true)
   const listener = window.addEventListener("scroll", function (e) {
     if (window.scrollY > window.innerHeight) {
-      setWelcomPageActive(false)
+      setPageTopPosition(false)
     } else {
-      setWelcomPageActive(true)
+      setPageTopPosition(true)
     }
   })
   return (
     <Section>
-      {welcomePageActive ? (
+      {pageTopPosition ? (
         <>
-          <div className="logo">LOGO Tech-Drog</div>
           <div className="titles">
             {" "}
             <h1 className="titles__main">Biuro projektowe Tech-Drog</h1>
             <h3 className="titles__subtitle">Arkadiusz Pydzik</h3>
           </div>
           <div className="motto">
-            <p className="motto__text">
+            <div className="motto__text">
               "Zaprojektujemy drogę do wspólnego celu"
-            </p>
+            </div>
           </div>
         </>
       ) : null}

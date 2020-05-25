@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import { FaRoad } from "react-icons/fa"
 
 const Section = styled.section`
   width: 100%;
@@ -23,7 +24,7 @@ const SectionContent = styled.div`
   z-index: 31;
   top: 0;
   color: white;
-  padding: 0 10% 0 5%;
+  padding: 5%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -57,17 +58,30 @@ const SectionContent = styled.div`
       }
     }
     ul {
+      padding: 0;
       li {
         list-style: none;
-        margin-top: 8px;
+        margin-top: 15px;
         margin-bottom: 2px;
-        &::after {
-          content: "";
-          display: block;
-          width: 40px;
-          height: 2px;
-          background-color: yellow;
-          transform: translateX(-10px);
+        .icon-road {
+          margin-right: 5px;
+          color: yellow;
+        }
+        @media (min-width: 1199px) {
+          &::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: yellow;
+            transform: translateX(20px);
+          }
+          .icon-road {
+            display: none;
+          }
+          &::after {
+            transform: translateX(-10px);
+          }
         }
       }
     }
@@ -76,16 +90,21 @@ const SectionContent = styled.div`
   .article-three {
     margin-bottom: 50px;
     .article__title {
+      font-size: 1.8rem;
       &:before {
         transform: translateX(-20%);
       }
     }
   }
-  .article-two {
-    .article__title {
-      text-align: right;
-      &:before {
-        transform: translateX(40vw);
+  @media (min-width: 1199px) {
+    .article-two {
+      margin-left: 25vw;
+      .article__title {
+        transform: translateX(-25vw);
+        text-align: right;
+        &:before {
+          transform: translateX(55vw);
+        }
       }
     }
   }
@@ -104,13 +123,8 @@ const sectionAbout = props => {
               dla inwestorów prywatnych jak i publicznych. Realizujemy zlecenia
               na terenie województwa mazowieckiego jak i łódzkiego. Firma
               współpracuje z wykwalifikowanymi specjalistami z branży drogowej
-              jak i branż infrastruktury towarzyszącej:{" "}
-              <ul>
-                <li> wodno-kanalizacyjnej,</li>
-                <li> energetycznej,</li>
-                <li> teletechnicznej,</li>
-                <li> gazowej.</li>
-              </ul>
+              jak i branż infrastruktury towarzyszącej (wodno-kanalizacyjnej,
+              energetycznej, teletechnicznej i gazowej).
             </div>
           </article>
 
@@ -118,20 +132,36 @@ const sectionAbout = props => {
             <h3 className=" article__title">Nasze usługi</h3>
             <div className="text">
               Świadczy kompleksowe usługi w zakresie wykonania dokumentacji
-              projektowej dla: dróg i ulic wraz z infrastrukturą towarzyszącą;
-              zjazdów indywidualnych jak i publicznych z dróg każdej kategorii;
-              parkingów i zatok postojowych; chodników i ścieżek rowerowych.
-              Ponadto posiadamy bogate doświadczenie w przygotowaniu projektów
-              stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
-              niezbędnymi uzgodnieniami. Zapewniamy też nadzory inwestorskie.
+              projektowej dla:
+              <ul>
+                <li>
+                  <FaRoad className="icon-road" />
+                  dróg i ulic wraz z infrastrukturą towarzyszącą,{" "}
+                </li>
+                <li>
+                  <FaRoad className="icon-road" />
+                  zjazdów indywidualnych jak i publicznych z dróg każdej
+                  kategorii,{" "}
+                </li>
+                <li>
+                  {" "}
+                  <FaRoad className="icon-road" />
+                  parkingów i zatok postojowych,{" "}
+                </li>
+                <li>
+                  {" "}
+                  <FaRoad className="icon-road" /> chodników i ścieżek
+                  rowerowych.{" "}
+                </li>
+              </ul>
             </div>
           </article>
           <article id="services" className="article article-three">
-            <h3 className="article__title">Ponadto</h3>
+            <h3 className="article__title">Ponadto...</h3>
             <div className="text">
-              Ponadto posiadamy bogate doświadczenie w przygotowaniu projektów
-              stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
-              niezbędnymi uzgodnieniami.
+              posiadamy bogate doświadczenie w przygotowaniu projektów stałej i
+              tymczasowej organizacji ruchu wraz ze wszystkimi niezbędnymi
+              uzgodnieniami.
               <br />
               <br />
               <div className="last-acapit">

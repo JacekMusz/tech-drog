@@ -10,6 +10,9 @@ const Section2 = styled.section`
   z-index: 400;
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const SectionReferences = () => {
