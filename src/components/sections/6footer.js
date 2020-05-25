@@ -6,10 +6,17 @@ const Section = styled.section`
   width: 100%;
   z-index: 20;
   position: relative;
+  color: white;
 `
 
 const sectionFooter = () => {
-  return <Section>Footer</Section>
+  return (
+    <Section>
+      Kontakt "Tech-Drog" Arkadiusz Pydzik ul. Gen. Augusta Emila Fieldorfa-Nila
+      30/28 96-300 Żyrardów woj. mazowieckie tel.: 665 633 933 e-mail:
+      biuro@tech-drog.pl www.tech-drog.pl
+    </Section>
+  )
 }
 
 export default sectionFooter

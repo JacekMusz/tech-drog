@@ -4,7 +4,6 @@ import { GlobalStyle } from "../assets/style/globalStyle"
 import Navigation from "../components/navigation/navigation"
 import SectionStart from "../components/sections/1start"
 import SectionAbout from "../components/sections/2about"
-
 import SectionReferences from "../components/sections/4references"
 import SectionContact from "../components/sections/5contact"
 import SectionFooter from "../components/sections/6footer"
@@ -38,7 +37,6 @@ const AppWrapper = styled.div`
 
 const IndexPage = props => (
   <>
-    {console.log(props)}
     <GlobalStyle />
     <Navigation />
     <AppWrapper id="start">

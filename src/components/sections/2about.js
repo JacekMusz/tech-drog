@@ -9,16 +9,6 @@ const Section = styled.section`
   margin-top: 100vh;
   color: black;
   height: 100%;
-  /* &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 21;
-    top: 0;
-    background-color: rgba(256, 256, 256, 0.2);
-  } */
 `
 
 const StyledBackgroundImage = styled(BackgroundImage)`
@@ -33,7 +23,7 @@ const SectionContent = styled.div`
   z-index: 31;
   top: 0;
   color: white;
-  padding: 0 10%;
+  padding: 0 10% 0 5%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -48,7 +38,7 @@ const SectionContent = styled.div`
       text-align: justify;
       .last-acapit {
         padding-left: 5px;
-        border-left: 5px solid red;
+        border-left: 5px solid yellow;
       }
     }
     .article__title {
@@ -64,7 +54,6 @@ const SectionContent = styled.div`
         width: 50vw;
         background-color: yellow;
         bottom: -15px;
-        border-bottom: 2px solid black;
       }
     }
     ul {
@@ -85,6 +74,7 @@ const SectionContent = styled.div`
   }
   .article-one,
   .article-three {
+    margin-bottom: 50px;
     .article__title {
       &:before {
         transform: translateX(-20%);
@@ -102,14 +92,13 @@ const SectionContent = styled.div`
 `
 
 const sectionAbout = props => {
-  console.log(props)
   return (
-    <Section image={props.imageUrl}>
+    <Section>
       <StyledBackgroundImage fluid={props.fluid}>
         <SectionContent id="about" className="content">
           <article className="article article-one">
             <h3 className="article__title">O nas</h3>
-            <p className="text">
+            <div className="text">
               Biuro projektowe „Tech-Drog” Arkadiusz Pydzik powstało 2008 roku.
               Świadczymy usługi w zakresie projektowania infrastruktury drogowej
               dla inwestorów prywatnych jak i publicznych. Realizujemy zlecenia
@@ -122,12 +111,12 @@ const sectionAbout = props => {
                 <li> teletechnicznej,</li>
                 <li> gazowej.</li>
               </ul>
-            </p>
+            </div>
           </article>
 
           <article id="services" className="article article-two">
             <h3 className=" article__title">Nasze usługi</h3>
-            <p className="text">
+            <div className="text">
               Świadczy kompleksowe usługi w zakresie wykonania dokumentacji
               projektowej dla: dróg i ulic wraz z infrastrukturą towarzyszącą;
               zjazdów indywidualnych jak i publicznych z dróg każdej kategorii;
@@ -135,11 +124,11 @@ const sectionAbout = props => {
               Ponadto posiadamy bogate doświadczenie w przygotowaniu projektów
               stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
               niezbędnymi uzgodnieniami. Zapewniamy też nadzory inwestorskie.
-            </p>
+            </div>
           </article>
           <article id="services" className="article article-three">
             <h3 className="article__title">Ponadto</h3>
-            <p className="text">
+            <div className="text">
               Ponadto posiadamy bogate doświadczenie w przygotowaniu projektów
               stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
               niezbędnymi uzgodnieniami.
@@ -148,7 +137,7 @@ const sectionAbout = props => {
               <div className="last-acapit">
                 Zapewniamy również nadzory inwestorskie.
               </div>
-            </p>
+            </div>
           </article>
         </SectionContent>
       </StyledBackgroundImage>

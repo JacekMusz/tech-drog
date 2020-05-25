@@ -8,7 +8,7 @@ const StyledMobileNavigation = styled.nav`
     props.navigationShowed ? "translateX(10px)" : "translateX(100%)"};
   position: fixed;
   transition: 0.5s;
-  z-index: 100;
+  z-index: 1000;
   top: 0;
   right: 0;
   width: 80%;
@@ -35,9 +35,10 @@ const StyledMobileNavigation = styled.nav`
     background-color: transparent;
     outline: none;
     border: none;
-    color: ${props => (props.navigationShowed ? "yellow" : "black")};
+    color: ${props => (props.welcomePageActive ? "black" : "white")};
     font-size: 2rem;
     transition: 0.5s;
+    text-shadow: 2px 2px yellow;
   }
 `
 
@@ -45,23 +46,27 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 10%;
-  width: 100%;
+  width: 100vw;
   padding-left: 10px;
   font-weight: bold;
   padding: 0;
+  justify-content: ${props =>
+    props.navigationShowed ? "flex-start" : "flex-end"};
   background-color: ${props =>
-    props.navigationShowed ? "black" : "transparent"};
+    props.welcomePageActive ? "white" : "transparent"};
   border-bottom: solid 3px
-    ${props => (props.navigationShowed ? "yellow" : "black")};
-  transition: 0.5s;
+    ${props => (props.navigationShowed ? "yellow" : "transparent")};
   transform: ${props =>
-    props.navigationShowed ? "translateX(0)" : "translateX(-45px)"};
+    props.navigationShowed ? "translateX(0)" : "translateX(-100%)"};
 `
 
-const MobileNavigation = () => {
+const MobileNavigation = props => {
   const [navigationShowed, setNavigationShowed] = useState(false)
   return (
-    <StyledMobileNavigation navigationShowed={navigationShowed}>
+    <StyledMobileNavigation
+      navigationShowed={navigationShowed}
+      welcomePageActive={props.welcomePageActive}
+    >
       <ButtonWrapper navigationShowed={navigationShowed}>
         {" "}
         <button onClick={() => setNavigationShowed(!navigationShowed)}>

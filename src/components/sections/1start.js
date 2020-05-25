@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
@@ -70,22 +70,35 @@ const StyledImage = styled(Image)`
   height: 100vh;
 `
 
-const sectionStart = props => {
+const SectionStart = props => {
+  const [welcomePageActive, setWelcomPageActive] = useState(true)
+  const listener = window.addEventListener("scroll", function (e) {
+    if (window.scrollY > window.innerHeight) {
+      setWelcomPageActive(false)
+    } else {
+      setWelcomPageActive(true)
+    }
+  })
   return (
     <Section>
-      <div className="logo">LOGO Tech-Drog</div>
-      <div className="titles">
-        {" "}
-        <h1 className="titles__main">Biuro projektowe Tech-Drog</h1>
-        <h3 className="titles__subtitle">Arkadiusz Pydzik</h3>
-      </div>
-      <div className="motto">
-        <p className="motto__text">"Zaprojektujemy drogę do wspólnego celu"</p>
-      </div>
-
+      {welcomePageActive ? (
+        <>
+          <div className="logo">LOGO Tech-Drog</div>
+          <div className="titles">
+            {" "}
+            <h1 className="titles__main">Biuro projektowe Tech-Drog</h1>
+            <h3 className="titles__subtitle">Arkadiusz Pydzik</h3>
+          </div>
+          <div className="motto">
+            <p className="motto__text">
+              "Zaprojektujemy drogę do wspólnego celu"
+            </p>
+          </div>
+        </>
+      ) : null}
       <StyledImage fluid={props.fluid} />
     </Section>
   )
 }
 
-export default sectionStart
+export default SectionStart
