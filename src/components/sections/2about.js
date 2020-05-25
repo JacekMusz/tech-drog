@@ -158,7 +158,7 @@ const sectionAbout = props => {
             </div>
           </article>
           <article id="services" className="article article-three">
-            <h3 className="article__title">Ponadto . . .</h3>
+            <h3 className="article__title">Ponadto. . .</h3>
             <div className="text">
               . . . posiadamy bogate doświadczenie w przygotowaniu projektów
               stałej i tymczasowej organizacji ruchu wraz ze wszystkimi
