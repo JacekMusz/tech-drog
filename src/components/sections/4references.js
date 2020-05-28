@@ -8,8 +8,9 @@ const Section2 = styled.section`
   padding: 10vh 10%;
   position: relative;
   z-index: 400;
+  box-shadow: 0 0 6px -1px black;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   align-items: center;

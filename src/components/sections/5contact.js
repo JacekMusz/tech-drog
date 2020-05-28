@@ -3,34 +3,37 @@ import styled from "styled-components"
 import { Formik } from "formik"
 
 const Section = styled.section`
-  min-height: 150vh;
+  min-height: 100vh;
   width: 100%;
-  padding: 50vh 10vw;
+  padding: 50vh 10vw 10vh 10vw;
   position: relative;
   z-index: 500;
 `
 const ContactFormWrapper = styled.div`
   width: 80%;
   min-height: 50vh;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(12, 12, 12, 0.9);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 6px -1px black;
 `
 
 const StyledInput = styled.input`
   margin-left: 10px;
   display: block;
-  border: 2px solid black;
-  background: black;
+  border: none;
+  background: #141414;
   font-size: 20px;
+  box-shadow: 0 0 6px -1px black;
   color: white;
   height: ${({ as }) => (as ? "200px" : "auto")};
   width: ${({ as }) => (as ? "40vw" : "25vw")};
   min-width: 200px;
   margin-bottom: ${({ as }) => as && "40px"};
   border-bottom: 1px solid gray;
+  resize: none;
   &:focus {
     border-bottom: 1px solid yellow;
     outline: none;
@@ -102,7 +105,7 @@ const sectionContact = () => {
           >
             {({ values, handleChange, handleBlur, handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-                <StyledLabel htmlFor="name">Name</StyledLabel>
+                <StyledLabel htmlFor="name">Twoje imię:</StyledLabel>
                 <StyledInput
                   id="name"
                   type="text"
@@ -111,7 +114,7 @@ const sectionContact = () => {
                   onBlur={handleBlur}
                   value={values.name}
                 />
-                <StyledLabel htmlFor="e-mail">E-mail</StyledLabel>
+                <StyledLabel htmlFor="e-mail">Twój adres e-mail</StyledLabel>
                 <StyledInput
                   id="email"
                   type="e-mail"
@@ -120,7 +123,7 @@ const sectionContact = () => {
                   onBlur={handleBlur}
                   value={values.email}
                 />
-                <StyledLabel>Message</StyledLabel>
+                <StyledLabel>Twoja wiadomość</StyledLabel>
                 <StyledInput
                   as="textarea"
                   type="text"

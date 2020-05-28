@@ -29,6 +29,7 @@ const SectionContent = styled.div`
   justify-content: space-between;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 0 6px -1px black;
   background-color: rgba(0, 0, 0, 0.6);
   .article {
     width: 100%;

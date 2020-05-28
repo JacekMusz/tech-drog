@@ -13,7 +13,7 @@ const StyledMobileNavigation = styled.nav`
   right: 0;
   width: 300px;
   height: 80vh;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(12, 12, 12, 0.95);
   color: white;
   font-size: 2rem;
   @media (min-width: 768px) {
@@ -59,7 +59,7 @@ const ButtonWrapper = styled.div`
   padding: 0;
   color: white;
   justify-content: space-between;
-  background-color: #111;
+  background-color: #121212;
   transform: ${props =>
     props.pageTopPosition ? "translateY(-52px)" : "translateY(0)"};
   border-bottom: solid 1px
