@@ -26,8 +26,11 @@ const StyledHorizontalNavigation = styled.nav`
         content: "";
         display: block;
         height: 2px;
-        width: 0%;
+        width: 100%;
+        transform-origin: 50%;
+        transform: scale(0.01);
         transition: 0.5s;
+        opacity: 0;
         background-color: ${props =>
           props.pageTopPosition ? "black" : "yellow"};
       }
@@ -35,6 +38,8 @@ const StyledHorizontalNavigation = styled.nav`
         color: ${props => (props.pageTopPosition ? "black" : "yellow")};
         &:after {
           width: 100%;
+          opacity: 1;
+          transform: scale(1);
         }
       }
     }

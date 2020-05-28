@@ -74,6 +74,7 @@ const ButtonWrapper = styled.div`
     transform: ${props =>
       props.pageTopPosition ? "translateY(52px)" : "translateY(0)"};
     margin: 0;
+    margin-right: 10px;
     background-color: transparent;
     outline: none;
     border: none;

@@ -16,13 +16,13 @@ const Navigation = () => {
   const TopBar = styled.div`
     background-color: red;
     height: 50px;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     z-index: 100;
     color: white;
     transition: 1s;
     transform: ${props =>
-      props.pageTopPosition ? "translate(0, -50px)" : "translate(0, 30px)"};
+      props.pageTopPosition ? "translate(0, -50px)" : "translate(0, 0px)"};
   `
 
   return (
