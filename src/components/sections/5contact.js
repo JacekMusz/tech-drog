@@ -38,6 +38,7 @@ const StyledInput = styled.input`
     border-bottom: 1px solid yellow;
     outline: none;
     color: yellow;
+    background: #141414;
   }
   @media (min-width: 410px) {
     height: ${({ as }) => (as ? "300px" : "auto")};
@@ -84,7 +85,7 @@ const sectionContact = () => {
         <ContactFormWrapper>
           <h2>Czekamy na wiadomość od Ciebie</h2>
           <Formik
-            initialValues={{ name: "", email: "", message: "" }}
+            initialValues={{ name: "", message: "", email: "" }}
             // validate={values => {
             //   const errors = {}
             //   if (!values.email) {
@@ -103,7 +104,13 @@ const sectionContact = () => {
               }, 400)
             }}
           >
-            {({ values, handleChange, handleBlur, handleSubmit }) => (
+            {({
+              values,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
               <form onSubmit={handleSubmit}>
                 <StyledLabel htmlFor="name">Twoje imię:</StyledLabel>
                 <StyledInput
@@ -117,7 +124,7 @@ const sectionContact = () => {
                 <StyledLabel htmlFor="e-mail">Twój adres e-mail</StyledLabel>
                 <StyledInput
                   id="email"
-                  type="e-mail"
+                  type="email"
                   name="email "
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -133,7 +140,7 @@ const sectionContact = () => {
                   onBlur={handleBlur}
                   value={values.message}
                 />
-                <Button>Send message</Button>
+                <Button disabled={isSubmitting}>Send message</Button>
               </form>
             )}
           </Formik>
