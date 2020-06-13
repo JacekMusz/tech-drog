@@ -38,12 +38,25 @@ export const query = graphql`
 // `
 
 const IndexPage = props => {
+  const isSSR = typeof window === "undefined"
   return (
-    <Suspense fallback={<div>.</div>}>
-      <GlobalStyle />
-      <Navigation />
-      <SectionsWrapper data={props.data} />
-      {/* <AppWrapper id="start">
+    <>
+      {" "}
+      {!isSSR && (
+        <Suspense fallback={<div>trwa ładownie ...</div>}>
+          <GlobalStyle />
+          <Navigation />
+          <SectionsWrapper data={props.data} />
+        </Suspense>
+      )}
+    </>
+  )
+}
+
+export default IndexPage
+
+{
+  /* <AppWrapper id="start">
         <SectionStart
  fluid={props.data.image1.childImageSharp.fluid}
         />
@@ -51,9 +64,5 @@ const IndexPage = props => {
         <SectionReferences />
         <SectionContact />
         <SectionFooter />
-      </AppWrapper> */}
-    </Suspense>
-  )
+      </AppWrapper> */
 }
-
-export default IndexPage
