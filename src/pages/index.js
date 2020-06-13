@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component, useEffect, useState } from "react"
 import styled from "styled-components"
 import { GlobalStyle } from "../assets/style/globalStyle"
 import Navigation from "../components/navigation/navigation"
@@ -35,18 +35,64 @@ const AppWrapper = styled.div`
   overflow: hidden;
 `
 
-const IndexPage = props => (
-  <>
-    <GlobalStyle />
-    <Navigation />
-    <AppWrapper id="start">
-      <SectionStart fluid={props.data.image1.childImageSharp.fluid} />
-      <SectionAbout fluid={props.data.image2.childImageSharp.fluid} />
-      <SectionReferences />
-      <SectionContact />
-      <SectionFooter />
-    </AppWrapper>
-  </>
-)
+// class IndexPage extends Component {
+//   state = {
+//     pageTopPosition: true,
+//   }
+
+//   componentDidMount = () => {
+//     window.addEventListener("scroll", e => {
+//       if (window.scrollY + 200 > window.innerHeight) {
+//         this.setState({
+//           pageTopPosition: false,
+//         })
+//       } else {
+//         this.setState({
+//           pageTopPosition: true,
+//         })
+//       }
+//     })
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         <GlobalStyle />
+//         <Navigation pageTopPosition={this.state.pageTopPosition} />
+//         <AppWrapper id="start">
+//           <SectionStart fluid={this.props.data.image1.childImageSharp.fluid} />
+//           <SectionAbout fluid={this.props.data.image2.childImageSharp.fluid} />
+//           <SectionReferences />
+//           <SectionContact />
+//           <SectionFooter />
+//         </AppWrapper>
+//       </>
+//     )
+//   }
+// }
+
+// export default IndexPage
+
+const IndexPage = props => {
+  return (
+    <>
+      <GlobalStyle />
+      <Navigation
+      // pageTopPosition={pageTopPosition}
+      />
+
+      <AppWrapper id="start">
+        <SectionStart
+          // pageTopPosition={pageTopPosition}
+          fluid={props.data.image1.childImageSharp.fluid}
+        />
+        <SectionAbout fluid={props.data.image2.childImageSharp.fluid} />
+        <SectionReferences />
+        <SectionContact />
+        <SectionFooter />
+      </AppWrapper>
+    </>
+  )
+}
 
 export default IndexPage

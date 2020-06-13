@@ -1,17 +1,22 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import MobileNavigation from "./mobileNavigation"
 import HorizontalNavigation from "./horizontalNavigation"
 
 const Navigation = () => {
-  const [pageTopPosition, setPageTopPosition] = useState(true)
-  const listener = window.addEventListener("scroll", function (e) {
-    if (window.scrollY + 200 > window.innerHeight) {
-      setPageTopPosition(false)
-    } else {
-      setPageTopPosition(true)
+  const [pageTopPosition, setPageTopPosition] = useState("false")
+
+  useEffect(() => {
+    if (window !== undefined) {
+      window.addEventListener("scroll", e => {
+        if (window.scrollY + 200 > window.innerHeight) {
+          setPageTopPosition(false)
+        } else {
+          setPageTopPosition(true)
+        }
+      })
     }
-  })
+  }, [])
 
   const TopBar = styled.div`
     background-color: red;

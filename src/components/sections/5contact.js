@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import Recaptcha from "react-recaptcha"
 import { FaTimes, FaCheck } from "react-icons/fa"
+import config from "gatsby-plugin-config"
 
 const Section = styled.section`
   min-height: 100vh;
@@ -184,6 +185,7 @@ const SectionContact = () => {
   const [invalidSigns, setInvalidSigns] = useState(false)
   const [checkbox, setCheckbox] = useState(false)
   const [reCaptchaValidation, setReCaptchaValidation] = useState(false)
+  const [normalRecaptcha, setNormalRecaptcha] = useState("false")
 
   const handleChangeEmailInput = e => {
     setEmailValue(e.target.value)
@@ -215,7 +217,15 @@ const SectionContact = () => {
       setReCaptchaValidation(true)
     }
   }
-
+  useEffect(() => {
+    if (window !== undefined) {
+      if (window.innerWidth > 410) {
+        setNormalRecaptcha(true)
+      } else {
+        setNormalRecaptcha(false)
+      }
+    }
+  })
   return (
     <div id="contact">
       <Section>
@@ -275,11 +285,11 @@ const SectionContact = () => {
               </StyledLabel>
             </Rodo>
             <Recaptcha
-              sitekey="6LdP0aMZAAAAAIB8kcq09G8i3AqXG71iWV6LCR4Z" /// .env
+              sitekey={config.RECAPTCHA_SITE_KEY} /// .env
               render="explicit"
               verifyCallback={verifyCallback}
               theme="dark"
-              size={window.innerWidth > 410 ? "normal" : "compact"}
+              size={normalRecaptcha ? "normal" : "compact"}
             />
             <Button
               disabled={

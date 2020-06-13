@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
@@ -159,13 +159,26 @@ const StyledImage = styled(Image)`
   height: 100vh;
 `
 
-const SectionStart = props => {
-  const [pageTopPosition, setPageTopPosition] = useState(true)
-  const listener = window.addEventListener("scroll", function (e) {
-    if (window.scrollY > window.innerHeight) {
-      setPageTopPosition(false)
-    } else {
-      setPageTopPosition(true)
+const SectionStart = ({ fluid }) => {
+  // const [pageTopPosition, setPageTopPosition] = useState(true)
+  // const listener = window.addEventListener("scroll", function (e) {
+  //   if (window.scrollY > window.innerHeight) {
+  //     setPageTopPosition(false)
+  //   } else {
+  //     setPageTopPosition(true)
+  //   }
+  // })
+  const [pageTopPosition, setPageTopPosition] = useState("false")
+
+  useEffect(() => {
+    if (window !== undefined) {
+      window.addEventListener("scroll", e => {
+        if (window.scrollY > window.innerHeight) {
+          setPageTopPosition(false)
+        } else {
+          setPageTopPosition(true)
+        }
+      })
     }
   })
   return (
@@ -184,7 +197,7 @@ const SectionStart = props => {
           </div>
         </>
       ) : null}
-      <StyledImage fluid={props.fluid} alt="primary-background" />
+      <StyledImage fluid={fluid} alt="primary-background" />
     </Section>
   )
 }
