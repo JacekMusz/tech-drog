@@ -218,6 +218,7 @@ const SectionContact = () => {
     }
   }
   useEffect(() => {
+    console.log()
     if (window !== undefined) {
       if (window.innerWidth > 410) {
         setNormalRecaptcha(true)
@@ -285,7 +286,7 @@ const SectionContact = () => {
               </StyledLabel>
             </Rodo>
             <Recaptcha
-              sitekey={config.RECAPTCHA_SITE_KEY} /// .env
+              sitekey={"6LdP0aMZAAAAAIB8kcq09G8i3AqXG71iWV6LCR4"} /// .env
               render="explicit"
               verifyCallback={verifyCallback}
               theme="dark"
