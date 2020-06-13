@@ -24,7 +24,7 @@ const SectionContent = styled.div`
   z-index: 31;
   top: 0;
   color: white;
-  padding: 5%;
+  padding: 10%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -38,7 +38,8 @@ const SectionContent = styled.div`
     margin-bottom: 50px;
   }
 
-  @media (min-width: 1199px) {
+  @media (min-width: 767px) {
+    padding: 5%;
   }
 `
 
@@ -83,6 +84,7 @@ const StyledArticleTitle = styled.h3`
 
 const StyledArticle = styled.div`
   width: 100%;
+  margin-bottom: 50px;
   .text {
     font-size: 13px;
     line-height: 20px;
@@ -148,26 +150,27 @@ const StyledArticle = styled.div`
 
 const sectionAbout = props => {
   return (
-    <Section>
+    <Section id="about">
       <StyledBackgroundImage fluid={props.fluid} alt="section-background">
-        <SectionContent id="about" className="content">
+        <SectionContent className="content">
           <StyledArticle>
             <StyledArticleTitle>O nas</StyledArticleTitle>
             <div className="text">
-              Biuro projektowe „Tech-Drog” Arkadiusz Pydzik powstało 2008 roku.
-              Świadczymy usługi w zakresie projektowania infrastruktury drogowej
-              dla inwestorów prywatnych jak i publicznych. Realizujemy zlecenia
-              na terenie województwa mazowieckiego jak i łódzkiego. Firma
-              współpracuje z wykwalifikowanymi specjalistami z branży drogowej
-              jak i branż infrastruktury towarzyszącej (wodno-kanalizacyjnej,
-              energetycznej, teletechnicznej i gazowej).
+              Biuro projektowe „Tech-Drog” Arkadiusz Pydzik powstało w 2008
+              roku. Świadczymy usługi w zakresie projektowania infrastruktury
+              drogowej dla inwestorów prywatnych jak i publicznych. Realizujemy
+              zlecenia na terenie województwa mazowieckiego jak i łódzkiego.
+              Firma współpracuje z wykwalifikowanymi specjalistami z branży
+              drogowej jak i branż infrastruktury towarzyszącej
+              (wodno-kanalizacyjnej, energetycznej, teletechnicznej i gazowej).
             </div>
+            <span id="services"> </span>
           </StyledArticle>
 
-          <StyledArticle id="services">
+          <StyledArticle>
             <StyledArticleTitle>Nasze Usługi</StyledArticleTitle>
             <div className="text">
-              Świadczy kompleksowe usługi w zakresie wykonania dokumentacji
+              Świadczymy kompleksowe usługi w zakresie wykonania dokumentacji
               projektowej dla:
               <ul>
                 <li>

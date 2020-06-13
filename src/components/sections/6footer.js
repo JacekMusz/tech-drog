@@ -89,7 +89,7 @@ const CopyrightWrapper = styled.div`
   position: absolute;
   bottom: 5px;
   right: 10px;
-  font-size: 12px;
+  font-size: 8px;
 `
 
 const sectionFooter = () => {

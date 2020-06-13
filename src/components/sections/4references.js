@@ -2,9 +2,8 @@ import React from "react"
 import styled from "styled-components"
 
 const Section2 = styled.section`
-  min-height: 100vh;
+  min-height: 50vh;
   width: 80%;
-  margin-top: 50vh;
   padding: 5vh 10%;
   position: relative;
   z-index: 400;
@@ -66,7 +65,11 @@ const Section2 = styled.section`
     }
   }
 `
-
+const OffsetDiv = styled.div`
+  width: 100%;
+  height: 50px;
+  margin-top: 50vh;
+`
 const StyledArticleTitle = styled.h2`
   font-size: 22px;
   &:after {
@@ -115,34 +118,37 @@ const StyledArticleSubTitle = styled.h3`
 
 const SectionReferences = () => {
   return (
-    <Section2 id="references">
-      <StyledArticleTitle>Referencje i realizacje</StyledArticleTitle>
-      <p>
-        Współpracujemy zarówno z klientami indywidualnymi, firmami oraz
-        instytucjami publicznymi
-      </p>
-      <StyledArticleSubTitle>
-        Zaufali już nam między innymi:
-      </StyledArticleSubTitle>
-      <ul className="references__list">
-        <li>SKANSKA S.A.</li>
-        <li>STRABAG Sp. z o.o.</li>
-        <li>EUROVIA POLSKA S. A.</li>
-        <li>PKP Energetyka S.A.</li>
-        <li>DELTA S. A.</li>
-        <li>DROGOMEX Sp. z o.o.</li>
-        <li>EL-KOL Sp. z o.o.</li>
-        <li>EUROVIA POLSKA S. A.</li>
-        <li>„GAZ” Sp. z o.o.</li>
-        <li>GLOBAL PARKS POLAND Sp. z o.o.</li>
-        <li>„INSTALBUD” Sp. z o.o.</li>
-        <li>MABAU Polska Sp. z o.o.</li>
-        <li>MILLSEN Sp. z o.o.</li>
-        <li>Mimatech Sp. z o.o.</li>
-        <li>Miasta i gminy z terenu powiatu żyrardowskiego i grodziskiego</li>
-        <li>Mazowiecki Zarząd Dróg Wojewódzkich w Warszawie</li>
-      </ul>
-    </Section2>
+    <>
+      <OffsetDiv id="references"></OffsetDiv>
+      <Section2>
+        <StyledArticleTitle>Referencje i realizacje</StyledArticleTitle>
+        <p>
+          Współpracujemy zarówno z klientami indywidualnymi, firmami oraz
+          instytucjami publicznymi
+        </p>
+        <StyledArticleSubTitle>
+          Zaufali już nam między innymi:
+        </StyledArticleSubTitle>
+        <ul className="references__list">
+          <li>SKANSKA S.A.</li>
+          <li>STRABAG Sp. z o.o.</li>
+          <li>EUROVIA POLSKA S. A.</li>
+          <li>PKP Energetyka S.A.</li>
+          <li>DELTA S. A.</li>
+          <li>DROGOMEX Sp. z o.o.</li>
+          <li>EL-KOL Sp. z o.o.</li>
+          <li>EUROVIA POLSKA S. A.</li>
+          <li>„GAZ” Sp. z o.o.</li>
+          <li>GLOBAL PARKS POLAND Sp. z o.o.</li>
+          <li>„INSTALBUD” Sp. z o.o.</li>
+          <li>MABAU Polska Sp. z o.o.</li>
+          <li>MILLSEN Sp. z o.o.</li>
+          <li>Mimatech Sp. z o.o.</li>
+          <li>Miasta i gminy z terenu powiatu żyrardowskiego i grodziskiego</li>
+          <li>Mazowiecki Zarząd Dróg Wojewódzkich w Warszawie</li>
+        </ul>
+      </Section2>
+    </>
   )
 }
 

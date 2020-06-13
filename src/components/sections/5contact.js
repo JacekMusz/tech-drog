@@ -11,7 +11,8 @@ const Section = styled.section`
   position: relative;
   z-index: 500;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
 const ContactFormWrapper = styled.div`
   width: 80%;
@@ -178,6 +179,10 @@ const StyledInputCheckbox = styled.input`
   width: 20px;
 `
 
+const OffsetDiv = styled.div`
+  height: 50px;
+`
+
 const SectionContact = () => {
   const [emailValue, setEmailValue] = useState("")
   const [emailCorrect, setEmailCorrect] = useState(false)
@@ -228,86 +233,85 @@ const SectionContact = () => {
     }
   })
   return (
-    <div id="contact">
-      <Section>
-        <ContactFormWrapper>
-          <Title>Napisz do nas !</Title>
-          <form
-            className="form"
-            // action="https://formspree.io/mjvawblo"
-            type="email"
-            //method="POST"
-          >
-            <StyledLabel>Twój email:</StyledLabel>
+    <Section>
+      <OffsetDiv id="contact"></OffsetDiv>
+      <ContactFormWrapper>
+        <Title>Napisz do nas !</Title>
+        <form
+          className="form"
+          // action="https://formspree.io/mjvawblo"
+          type="email"
+          //method="POST"
+        >
+          <StyledLabel>Twój email:</StyledLabel>
 
-            <StyledInputWrapper emailLength={emailValue.length}>
-              <StyledInput
-                onChange={e => handleChangeEmailInput(e)}
-                type="text"
-                name="_replyto"
-              ></StyledInput>
-              {emailCorrect ? (
-                <FaCheck className="email-input-icon correct" />
-              ) : (
-                <FaTimes className="email-input-icon incorrect" />
-              )}
-            </StyledInputWrapper>
-            <StyledLabel>Twoja wiadomość:</StyledLabel>
+          <StyledInputWrapper emailLength={emailValue.length}>
             <StyledInput
-              onChange={e => handleChangeTextAreaInput(e)}
-              as="textarea"
+              onChange={e => handleChangeEmailInput(e)}
               type="text"
-              name="message"
+              name="_replyto"
             ></StyledInput>
-            {invalidSigns ? (
-              <div className="invalid-signs-notification">
-                W wiadomości użyto niedozwolonych znaków specjalnych.
-                <br />
-                Znaki specjalne jakie możesz użyć to:. , ( ) _ / % + - :
-              </div>
-            ) : null}
-            <Rodo>
-              <StyledInputCheckbox
-                onChange={() => setCheckbox(!checkbox)}
-                className="contact__rodo-checkbox"
-                type="checkbox"
-              ></StyledInputCheckbox>
-              <StyledLabel className="contact__rodo-text">
-                Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą
-                o ochronie danych osobowych w związku z wysłaniem zapytania
-                przez formularz kontaktowy. Podanie danych jest dobrowolne, ale
-                niezbędne do przetworzenia zapytania. Zostałem poinformowany, że
-                przysługuje mi prawo dostępu do moich danych, możliwość
-                poprawiania ich oraz zażądania zaprzestania ich przetwarzania
-                poprzez bezpośredni kontakt (telefoniczny lub korespondencyjny)
-                z Administaratorem danych osobowych. Administratorem danych
-                osobowych jest firma TECH-DROG Arkadiusz Pydzik ul. Gen. Augusta
-                Emila Fieldorfa-Nila 30/28 96-300 Żyrardów{" "}
-              </StyledLabel>
-            </Rodo>
-            {/* <Recaptcha
+            {emailCorrect ? (
+              <FaCheck className="email-input-icon correct" />
+            ) : (
+              <FaTimes className="email-input-icon incorrect" />
+            )}
+          </StyledInputWrapper>
+          <StyledLabel>Twoja wiadomość:</StyledLabel>
+          <StyledInput
+            onChange={e => handleChangeTextAreaInput(e)}
+            as="textarea"
+            type="text"
+            name="message"
+          ></StyledInput>
+          {invalidSigns ? (
+            <div className="invalid-signs-notification">
+              W wiadomości użyto niedozwolonych znaków specjalnych.
+              <br />
+              Znaki specjalne jakie możesz użyć to:. , ( ) _ / % + - :
+            </div>
+          ) : null}
+          <Rodo>
+            <StyledInputCheckbox
+              onChange={() => setCheckbox(!checkbox)}
+              className="contact__rodo-checkbox"
+              type="checkbox"
+            ></StyledInputCheckbox>
+            <StyledLabel className="contact__rodo-text">
+              Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą o
+              ochronie danych osobowych w związku z wysłaniem zapytania przez
+              formularz kontaktowy. Podanie danych jest dobrowolne, ale
+              niezbędne do przetworzenia zapytania. Zostałem poinformowany, że
+              przysługuje mi prawo dostępu do moich danych, możliwość
+              poprawiania ich oraz zażądania zaprzestania ich przetwarzania
+              poprzez bezpośredni kontakt (telefoniczny lub korespondencyjny) z
+              Administaratorem danych osobowych. Administratorem danych
+              osobowych jest firma TECH-DROG Arkadiusz Pydzik ul. Gen. Augusta
+              Emila Fieldorfa-Nila 30/28 96-300 Żyrardów{" "}
+            </StyledLabel>
+          </Rodo>
+          {/* <Recaptcha
               sitekey={"6LdP0aMZAAAAAIB8kcq09G8i3AqXG71iWV6LCR4"} /// .env
               render="explicit"
               verifyCallback={verifyCallback}
               theme="dark"
               size={normalRecaptcha ? "normal" : "compact"}
             /> */}
-            <Button
-              disabled={
-                !textAreaCorrect ||
-                !emailCorrect ||
-                !checkbox ||
-                !reCaptchaValidation
-              }
-              // type="submit"
-              onClick={() => alert("wysłano maila")}
-            >
-              Wyślij
-            </Button>
-          </form>
-        </ContactFormWrapper>
-      </Section>
-    </div>
+          <Button
+            disabled={
+              !textAreaCorrect ||
+              !emailCorrect ||
+              !checkbox ||
+              !reCaptchaValidation
+            }
+            // type="submit"
+            onClick={() => alert("wysłano maila")}
+          >
+            Wyślij
+          </Button>
+        </form>
+      </ContactFormWrapper>
+    </Section>
   )
 }
 
