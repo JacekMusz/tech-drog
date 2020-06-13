@@ -30,33 +30,67 @@ const SectionContent = styled.div`
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 0 6px -1px black;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   .article {
     width: 100%;
-    .text {
-      font-size: 1.2rem;
-      line-height: 1.5rem;
-      font-weight: normal;
-      text-align: justify;
-      .last-acapit {
-        padding-left: 5px;
-        border-left: 5px solid yellow;
-      }
+  }
+  .article-three {
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: 1199px) {
+  }
+`
+
+const StyledArticleTitle = styled.h3`
+  position: relative;
+  font-size: 24px;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 70px;
+    background-color: yellow;
+    bottom: -10px;
+    transform: translateX(-10vw);
+  }
+  @media (min-width: 359px) {
+    font-size: 26px;
+    &:before {
+      width: 100px;
     }
-    .article__title {
-      display: block;
-      position: relative;
-      font-size: 2.2rem;
-      width: 100%;
-      &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 5px;
-        width: 35vw;
-        background-color: yellow;
-        bottom: -15px;
-      }
+  }
+  @media (min-width: 410px) {
+    font-size: 26px;
+    &:before {
+      width: 120px;
+    }
+  }
+  @media (min-width: 767px) {
+    font-size: 28px;
+    &:before {
+      width: 200px;
+    }
+  }
+  @media (min-width: 1199px) {
+    font-size: 30px;
+    &:before {
+      width: 240px;
+    }
+  }
+`
+
+const StyledArticle = styled.div`
+  width: 100%;
+  .text {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: normal;
+
+    .last-acapit {
+      padding-left: 5px;
+      border-left: 5px solid yellow;
     }
     ul {
       padding: 0;
@@ -87,27 +121,27 @@ const SectionContent = styled.div`
       }
     }
   }
-  .article-one,
-  .article-three {
-    margin-bottom: 50px;
-    .article__title {
-      font-size: 1.8rem;
-      &:before {
-        transform: translateX(-20%);
-      }
+  @media (min-width: 359px) {
+    .text {
+      font-size: 15px;
+    }
+  }
+  @media (min-width: 410px) {
+    .text {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  @media (min-width: 767px) {
+    .text {
+      font-size: 18px;
+      line-height: 28px;
     }
   }
   @media (min-width: 1199px) {
-    .article-two {
-      margin-left: 25vw;
-      .article__title {
-        transform: translateX(-30vw);
-        text-align: center;
-        &:before {
-          transform: translateX(30vw);
-          width: 80vw;
-        }
-      }
+    .text {
+      font-size: 19px;
+      line-height: 30px;
     }
   }
 `
@@ -115,10 +149,10 @@ const SectionContent = styled.div`
 const sectionAbout = props => {
   return (
     <Section>
-      <StyledBackgroundImage fluid={props.fluid}>
+      <StyledBackgroundImage fluid={props.fluid} alt="section-background">
         <SectionContent id="about" className="content">
-          <article className="article article-one">
-            <h3 className="article__title">O nas</h3>
+          <StyledArticle>
+            <StyledArticleTitle>O nas</StyledArticleTitle>
             <div className="text">
               Biuro projektowe „Tech-Drog” Arkadiusz Pydzik powstało 2008 roku.
               Świadczymy usługi w zakresie projektowania infrastruktury drogowej
@@ -128,10 +162,10 @@ const sectionAbout = props => {
               jak i branż infrastruktury towarzyszącej (wodno-kanalizacyjnej,
               energetycznej, teletechnicznej i gazowej).
             </div>
-          </article>
+          </StyledArticle>
 
-          <article id="services" className="article article-two">
-            <h3 className=" article__title">Nasze usługi</h3>
+          <StyledArticle id="services">
+            <StyledArticleTitle>Nasze Usługi</StyledArticleTitle>
             <div className="text">
               Świadczy kompleksowe usługi w zakresie wykonania dokumentacji
               projektowej dla:
@@ -157,9 +191,9 @@ const sectionAbout = props => {
                 </li>
               </ul>
             </div>
-          </article>
-          <article id="services" className="article article-three">
-            <h3 className="article__title">Ponadto. . .</h3>
+          </StyledArticle>
+          <StyledArticle id="services" className="article-three">
+            <StyledArticleTitle>Ponadto ...</StyledArticleTitle>
             <div className="text">
               Posiadamy bogate doświadczenie w przygotowaniu projektów stałej i
               tymczasowej organizacji ruchu wraz ze wszystkimi niezbędnymi
@@ -170,7 +204,7 @@ const sectionAbout = props => {
                 Zapewniamy również nadzory inwestorskie.
               </div>
             </div>
-          </article>
+          </StyledArticle>
         </SectionContent>
       </StyledBackgroundImage>
     </Section>

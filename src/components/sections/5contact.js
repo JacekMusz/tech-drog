@@ -1,13 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import { Formik } from "formik"
+import Recaptcha from "react-recaptcha"
+import { FaTimes, FaCheck } from "react-icons/fa"
 
 const Section = styled.section`
   min-height: 100vh;
   width: 100%;
-  padding: 50vh 10vw 10vh 10vw;
+  padding: 50vh 0 10vh 0;
   position: relative;
   z-index: 500;
+  display: flex;
+  justify-content: center;
 `
 const ContactFormWrapper = styled.div`
   width: 80%;
@@ -17,21 +20,57 @@ const ContactFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px 10px;
   box-shadow: 0 0 6px -1px black;
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact__rodo-text {
+    font-size: 8px;
+    width: 80%;
+  }
+  .invalid-signs-notification {
+    color: red;
+    font-size: 12px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+`
+
+const Title = styled.h3`
+  display: block;
+  font-size: 16px;
+  margin-bottom: 40px;
+  border-left: 5px solid yellow;
+  padding: 10px 5px;
+  @media (min-width: 359px) {
+    font-size: 17px;
+  }
+  @media (min-width: 410px) {
+    font-size: 20px;
+  }
+  @media (min-width: 767px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1199px) {
+    font-size: 24px;
+  }
 `
 
 const StyledInput = styled.input`
-  margin-left: 10px;
+  margin-bottom: 20px;
   display: block;
   border: none;
   background: #141414;
-  font-size: 20px;
+  font-size: 12px;
   box-shadow: 0 0 6px -1px black;
   color: white;
-  height: ${({ as }) => (as ? "200px" : "auto")};
+  height: ${({ as }) => (as ? "300px" : "auto")};
   width: ${({ as }) => (as ? "40vw" : "25vw")};
   min-width: 200px;
-  margin-bottom: ${({ as }) => as && "40px"};
   border-bottom: 1px solid gray;
   resize: none;
   &:focus {
@@ -40,34 +79,63 @@ const StyledInput = styled.input`
     color: yellow;
     background: #141414;
   }
+  @media (min-width: 359px) {
+    min-width: ${({ as }) => (as ? "90%" : "200px")};
+  }
   @media (min-width: 410px) {
-    height: ${({ as }) => (as ? "300px" : "auto")};
+    height: ${({ as }) => (as ? "400px" : "auto")};
+    min-width: ${({ as }) => (as ? "90%" : "200px")};
   }
   @media (min-width: 767px) {
-    height: ${({ as }) => (as ? "400px" : "auto")};
+    height: ${({ as }) => (as ? "500px" : "auto")};
   }
   @media (min-width: 1199px) {
-    height: ${({ as }) => (as ? "500px" : "auto")};
+    height: ${({ as }) => (as ? "600px" : "auto")};
   }
 `
 
 const StyledLabel = styled.label`
-  margin: 30px 10px 10px;
+  margin-bottom: 10px;
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
+  align-self: left;
+  @media (min-width: 410px) {
+    font-size: 14px;
+  }
+  @media (min-width: 767px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1199px) {
+    font-size: 18px;
+  }
 `
+const StyledInputWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 
+  .email-input-icon {
+    margin-left: 10px;
+    transition: 0.5s;
+    opacity: ${({ emailLength }) => (emailLength > 1 ? 1 : 0)};
+  }
+  .correct {
+    color: green;
+  }
+  .incorrect {
+    color: red;
+  }
+`
 const Button = styled.button`
-  margin-left: 10px;
-  border: 1px solid grey;
+  border: 1px solid #666;
   padding: 5px;
   background-color: transparent;
   color: white;
-  margin-bottom: 50px;
+  margin: 20px 0;
   min-width: 150px;
   cursor: pointer;
   transition: 0.5s;
+  color: yellow;
   &:hover {
     color: yellow;
     border: 1px solid yellow;
@@ -76,78 +144,161 @@ const Button = styled.button`
   @media (min-width: 767px) {
     width: 200px;
   }
+  @media (min-width: 1199px) {
+    width: 300px;
+  }
+  &:disabled {
+    color: #444;
+    border: 1px solid #444;
+    &:hover {
+      color: #444;
+      border: 1px solid #444;
+      background-color: transparent;
+    }
+  }
 `
 
-const sectionContact = () => {
+const Rodo = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  .contact__rodo-text {
+    width: 100%;
+    font-size: 6px;
+    @media (min-width: 767px) {
+      font-size: 8px;
+    }
+  }
+`
+
+const StyledInputCheckbox = styled.input`
+  margin-top: 10px;
+  width: 20px;
+`
+
+const SectionContact = () => {
+  const [emailValue, setEmailValue] = useState("")
+  const [emailCorrect, setEmailCorrect] = useState(false)
+  const [textAreaCorrect, setTextAreaCorrect] = useState(false)
+  const [invalidSigns, setInvalidSigns] = useState(false)
+  const [checkbox, setCheckbox] = useState(false)
+  const [reCaptchaValidation, setReCaptchaValidation] = useState(false)
+
+  const handleChangeEmailInput = e => {
+    setEmailValue(e.target.value)
+    setEmailCorrect(
+      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(e.target.value)
+    )
+    console.log(textAreaCorrect, emailCorrect)
+  }
+
+  const handleChangeTextAreaInput = e => {
+    const textAreaProperSigns = []
+    ;[...e.target.value].forEach(sign =>
+      textAreaProperSigns.push(/^[a-zA-Z0-9ąćśńółę.,()_%+-]/i.test(sign))
+    )
+    // console.log(textAreaProperSigns.includes(false))
+    if (textAreaProperSigns.includes(false)) {
+      setInvalidSigns(true)
+    } else {
+      setInvalidSigns(false)
+    }
+    if (e.target.value.length > 5 && !textAreaProperSigns.includes(false)) {
+      setTextAreaCorrect(true)
+    } else {
+      setTextAreaCorrect(false)
+    }
+  }
+
+  var verifyCallback = function (response) {
+    if (response) {
+      setReCaptchaValidation(true)
+    }
+  }
+
   return (
     <div id="contact">
       <Section>
         <ContactFormWrapper>
-          <h2>Czekamy na wiadomość od Ciebie</h2>
-          <Formik
-            initialValues={{ name: "", message: "", email: "" }}
-            // validate={values => {
-            //   const errors = {}
-            //   if (!values.email) {
-            //     errors.email = "Required"
-            //   } else if (
-            //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            //   ) {
-            //     errors.email = "Invalid email address"
-            //   }
-            //   return errors
-            // }}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2))
-                setSubmitting(false)
-              }, 400)
-            }}
+          <Title>Napisz do nas !</Title>
+          <form
+            className="form"
+            // action="https://formspree.io/mjvawblo"
+            type="email"
+            //method="POST"
           >
-            {({
-              values,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
-              <form onSubmit={handleSubmit}>
-                <StyledLabel htmlFor="name">Twoje imię:</StyledLabel>
-                <StyledInput
-                  id="name"
-                  type="text"
-                  name="name"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.name}
-                />
-                <StyledLabel htmlFor="e-mail">Twój adres e-mail</StyledLabel>
-                <StyledInput
-                  id="email"
-                  type="email"
-                  name="email "
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-                <StyledLabel>Twoja wiadomość</StyledLabel>
-                <StyledInput
-                  as="textarea"
-                  type="text"
-                  name="message"
-                  id="message"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.message}
-                />
-                <Button disabled={isSubmitting}>Send message</Button>
-              </form>
-            )}
-          </Formik>
+            <StyledLabel>Twój email:</StyledLabel>
+
+            <StyledInputWrapper emailLength={emailValue.length}>
+              <StyledInput
+                onChange={e => handleChangeEmailInput(e)}
+                type="text"
+                name="_replyto"
+              ></StyledInput>
+              {emailCorrect ? (
+                <FaCheck className="email-input-icon correct" />
+              ) : (
+                <FaTimes className="email-input-icon incorrect" />
+              )}
+            </StyledInputWrapper>
+            <StyledLabel>Twoja wiadomość:</StyledLabel>
+            <StyledInput
+              onChange={e => handleChangeTextAreaInput(e)}
+              as="textarea"
+              type="text"
+              name="message"
+            ></StyledInput>
+            {invalidSigns ? (
+              <div className="invalid-signs-notification">
+                W wiadomości użyto niedozwolonych znaków specjalnych.
+                <br />
+                Znaki specjalne jakie możesz użyć to:. , ( ) _ / % + - :
+              </div>
+            ) : null}
+            <Rodo>
+              <StyledInputCheckbox
+                onChange={() => setCheckbox(!checkbox)}
+                className="contact__rodo-checkbox"
+                type="checkbox"
+              ></StyledInputCheckbox>
+              <StyledLabel className="contact__rodo-text">
+                Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą
+                o ochronie danych osobowych w związku z wysłaniem zapytania
+                przez formularz kontaktowy. Podanie danych jest dobrowolne, ale
+                niezbędne do przetworzenia zapytania. Zostałem poinformowany, że
+                przysługuje mi prawo dostępu do moich danych, możliwość
+                poprawiania ich oraz zażądania zaprzestania ich przetwarzania
+                poprzez bezpośredni kontakt (telefoniczny lub korespondencyjny)
+                z Administaratorem danych osobowych. Administratorem danych
+                osobowych jest firma TECH-DROG Arkadiusz Pydzik ul. Gen. Augusta
+                Emila Fieldorfa-Nila 30/28 96-300 Żyrardów{" "}
+              </StyledLabel>
+            </Rodo>
+            <Recaptcha
+              sitekey="6LdP0aMZAAAAAIB8kcq09G8i3AqXG71iWV6LCR4Z" /// .env
+              render="explicit"
+              verifyCallback={verifyCallback}
+              theme="dark"
+              size={window.innerWidth > 410 ? "normal" : "compact"}
+            />
+            <Button
+              disabled={
+                !textAreaCorrect ||
+                !emailCorrect ||
+                !checkbox ||
+                !reCaptchaValidation
+              }
+              // type="submit"
+              onClick={() => alert("wysłano maila")}
+            >
+              Wyślij
+            </Button>
+          </form>
         </ContactFormWrapper>
       </Section>
     </div>
   )
 }
 
-export default sectionContact
+export default SectionContact

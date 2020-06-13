@@ -5,41 +5,53 @@ const Section2 = styled.section`
   min-height: 100vh;
   width: 80%;
   margin-top: 50vh;
-  padding: 10vh 10%;
+  padding: 5vh 10%;
   position: relative;
   z-index: 400;
   box-shadow: 0 0 6px -1px black;
   color: white;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
-  .references__title,
-  .references__subtitle {
-    &:after {
-      content: "";
-      display: block;
-      height: 5px;
-      width: 40%;
-      bottom: 0;
-      background-color: yellow;
-      transform: translateX(-20%);
-    }
-  }
+
   p {
     margin: 0 0 20px 0;
+    font-size: 13px;
+    @media (min-width: 359px) {
+      font-size: 14px;
+    }
+    @media (min-width: 410px) {
+      font-size: 14px;
+    }
+    @media (min-width: 767px) {
+    }
+    @media (min-width: 1199px) {
+    }
   }
   .references__subtitle {
+    font-size: 16px;
     &:after {
-      height: 2px;
+      height: 1px;
     }
   }
   .references__list {
     padding: 0;
     li {
+      font-size: 13px;
       list-style: none;
       margin-top: 15px;
       margin-bottom: 2px;
+      @media (min-width: 359px) {
+        font-size: 14px;
+      }
+      @media (min-width: 410px) {
+        font-size: 16px;
+      }
+      @media (min-width: 767px) {
+      }
+      @media (min-width: 1199px) {
+      }
       &::after {
         content: "";
         display: block;
@@ -55,15 +67,63 @@ const Section2 = styled.section`
   }
 `
 
+const StyledArticleTitle = styled.h2`
+  font-size: 22px;
+  &:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 40%;
+    bottom: 0;
+    background-color: yellow;
+    transform: translateX(-20%);
+  }
+  @media (min-width: 359px) {
+    font-size: 24px;
+  }
+  @media (min-width: 410px) {
+    font-size: 26px;
+  }
+  @media (min-width: 767px) {
+  }
+  @media (min-width: 1199px) {
+  }
+`
+
+const StyledArticleSubTitle = styled.h3`
+  font-size: 15px;
+  &:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 40%;
+    bottom: 0;
+    background-color: yellow;
+    transform: translateX(-20%);
+  }
+  @media (min-width: 359px) {
+    font-size: 16px;
+  }
+  @media (min-width: 410px) {
+    font-size: 18px;
+  }
+  @media (min-width: 767px) {
+  }
+  @media (min-width: 1199px) {
+  }
+`
+
 const SectionReferences = () => {
   return (
     <Section2 id="references">
-      <h2 className="references__title">Referencje i realizacje</h2>
+      <StyledArticleTitle>Referencje i realizacje</StyledArticleTitle>
       <p>
         Współpracujemy zarówno z klientami indywidualnymi, firmami oraz
         instytucjami publicznymi
       </p>
-      <h3 className="references__subtitle">Zaufali już nam między innymi:</h3>
+      <StyledArticleSubTitle>
+        Zaufali już nam między innymi:
+      </StyledArticleSubTitle>
       <ul className="references__list">
         <li>SKANSKA S.A.</li>
         <li>STRABAG Sp. z o.o.</li>

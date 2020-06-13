@@ -61,7 +61,6 @@ const Section = styled.section`
       bottom: 0px;
       opacity: 0;
       transform: translateY(100%);
-      border-bottom: solid 1px black;
       animation: mottoAnimation 1s 1s both 1;
     }
   }
@@ -185,7 +184,7 @@ const SectionStart = props => {
           </div>
         </>
       ) : null}
-      <StyledImage fluid={props.fluid} />
+      <StyledImage fluid={props.fluid} alt="primary-background" />
     </Section>
   )
 }
