@@ -198,7 +198,6 @@ const SectionContact = () => {
     ;[...e.target.value].forEach(sign =>
       textAreaProperSigns.push(/^[a-zA-Z0-9ąćśńółę.,()_%+-]/i.test(sign))
     )
-    // console.log(textAreaProperSigns.includes(false))
     if (textAreaProperSigns.includes(false)) {
       setInvalidSigns(true)
     } else {
