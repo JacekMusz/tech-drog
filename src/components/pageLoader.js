@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import Logo from "./../assets/logo-300x100.svg"
-import LogoName from "./../assets/napis-300x100.svg"
+import Logo from "./../assets/svg/logo-300x100.svg"
+import LogoName from "./../assets/svg/napis-300x100.svg"
 
 const PageLoaderContainer = styled.div`
   width: 100vw;

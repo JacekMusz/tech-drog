@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Image from "gatsby-image"
 import styled from "styled-components"
+import { yellowColor } from "./../../assets/colors"
 
 const Section = styled.section`
   min-height: 100vh;
@@ -20,7 +21,7 @@ const Section = styled.section`
     left: 5%;
     z-index: 50;
     font-weight: bold;
-    border-left: 10px solid yellow;
+    border-left: 10px solid ${yellowColor};
     padding-left: 10px;
     overflow: hidden;
     &__main {
@@ -54,7 +55,7 @@ const Section = styled.section`
       content: "";
       display: block;
       position: absolute;
-      background-color: yellow;
+      background-color: ${yellowColor};
       margin-left: 40%;
       width: 60%;
       height: 3px;
@@ -184,7 +185,7 @@ const SectionStart = ({ fluid }) => {
           </div>
           <div className="motto">
             <div className="motto__text">
-              "Zaprojektujemy drogę do wspólnego celu"
+              Zaprojektujmy drogę do wspólnego celu
             </div>
           </div>
         </>

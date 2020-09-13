@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { yellowColor } from "../../assets/colors"
 
 const Section2 = styled.section`
   min-height: 50vh;
@@ -56,7 +57,7 @@ const Section2 = styled.section`
         display: block;
         width: 40px;
         height: 1px;
-        background-color: yellow;
+        background-color: ${yellowColor};
         transform: translateX(20px);
       }
       &::after {
@@ -78,7 +79,7 @@ const StyledArticleTitle = styled.h2`
     height: 3px;
     width: 40%;
     bottom: 0;
-    background-color: yellow;
+    background-color: ${yellowColor};
     transform: translateX(-20%);
   }
   @media (min-width: 359px) {
@@ -101,7 +102,7 @@ const StyledArticleSubTitle = styled.h3`
     height: 2px;
     width: 40%;
     bottom: 0;
-    background-color: yellow;
+    background-color: ${yellowColor};
     transform: translateX(-20%);
   }
   @media (min-width: 359px) {

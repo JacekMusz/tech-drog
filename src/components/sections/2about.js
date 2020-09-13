@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { FaRoad } from "react-icons/fa"
+import { yellowColor } from "./../../assets/colors"
 
 const Section = styled.section`
   width: 100%;
@@ -24,7 +25,8 @@ const SectionContent = styled.div`
   z-index: 31;
   top: 0;
   color: white;
-  padding: 10%;
+  margin: auto;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -51,33 +53,29 @@ const StyledArticleTitle = styled.h3`
     display: block;
     position: absolute;
     height: 2px;
-    width: 70px;
-    background-color: yellow;
+    width: 100px;
+    background-color: ${yellowColor};
     bottom: -10px;
-    transform: translateX(-10vw);
+    transform: translateX(-10px);
   }
   @media (min-width: 359px) {
     font-size: 26px;
     &:before {
-      width: 100px;
     }
   }
   @media (min-width: 410px) {
     font-size: 26px;
     &:before {
-      width: 120px;
     }
   }
   @media (min-width: 767px) {
     font-size: 28px;
     &:before {
-      width: 200px;
     }
   }
   @media (min-width: 1199px) {
     font-size: 30px;
     &:before {
-      width: 240px;
     }
   }
 `
@@ -85,6 +83,8 @@ const StyledArticleTitle = styled.h3`
 const StyledArticle = styled.div`
   width: 100%;
   margin-bottom: 50px;
+  max-width: 1024px;
+  margin: auto;
   .text {
     font-size: 13px;
     line-height: 20px;
@@ -92,7 +92,7 @@ const StyledArticle = styled.div`
 
     .last-acapit {
       padding-left: 5px;
-      border-left: 5px solid yellow;
+      border-left: 5px solid ${yellowColor};
     }
     ul {
       padding: 0;
@@ -102,7 +102,7 @@ const StyledArticle = styled.div`
         margin-bottom: 2px;
         .icon-road {
           margin-right: 5px;
-          color: yellow;
+          color: ${yellowColor};
         }
         @media (min-width: 1199px) {
           &::after {
@@ -110,7 +110,7 @@ const StyledArticle = styled.div`
             display: block;
             width: 40px;
             height: 2px;
-            background-color: yellow;
+            background-color: ${yellowColor};
             transform: translateX(20px);
           }
           .icon-road {

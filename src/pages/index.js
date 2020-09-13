@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react"
-import styled from "styled-components"
 import { GlobalStyle } from "../assets/style/globalStyle"
 import PageLoader from "../components/pageLoader"
 
@@ -26,11 +25,6 @@ export const query = graphql`
     }
   }
 `
-
-// const LazyLoadingMessage = styled.div`
-//   height: 100vh;
-//   width: 100vw;
-// `
 
 const IndexPage = props => {
   const isSSR = typeof window === "undefined"

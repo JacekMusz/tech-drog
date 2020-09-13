@@ -2,19 +2,20 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { FaArrowRight, FaBars } from "react-icons/fa"
 import scrollTo from "gatsby-plugin-smoothscroll"
-import LogoAndName from "./../../assets/logo-i-napis.svg"
+import LogoAndName from "./../../assets/svg/logo-i-napis.svg"
+import { yellowColor } from "./../../assets/colors"
 
 const StyledMobileNavigation = styled.nav`
   transform: ${props =>
-    props.navigationShowed ? "translateX(10px)" : "translateX(100%)"};
+    props.navigationShowed ? "translateX(0px)" : "translateX(100%)"};
   position: fixed;
   transition: 0.5s;
   z-index: 1000;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 80vh;
-  background-color: rgba(12, 12, 12, 0.95);
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background-color: rgba(12, 12, 12, 1);
   color: white;
   font-size: 2rem;
   @media (min-width: 768px) {
@@ -41,7 +42,7 @@ const StyledMobileNavigation = styled.nav`
     background-color: transparent;
     outline: none;
     border: none;
-    color: yellow;
+    color: ${yellowColor};
     font-size: 2rem;
     transition: 0.5s;
     z-index: 1000;
@@ -63,19 +64,21 @@ const ButtonWrapper = styled.div`
   background-color: #121212;
   transform: ${props =>
     props.pageTopPosition ? "translateY(-52px)" : "translateY(0)"};
-  border-bottom: solid 1px
-    ${props => (props.pageTopPosition ? "transparent" : "yellow")};
+  border-bottom: solid 1px #fdc205;
   transition: 0.5s;
   .logo {
-    margin: 0;
+    margin: 3px 0 0 3px;
     font-weight: 300;
+
     cursor: pointer;
   }
   .button-bars {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
     transform: ${props =>
       props.pageTopPosition ? "translateY(52px)" : "translateY(0)"};
     margin: 0;
-    margin-right: 10px;
     background-color: transparent;
     outline: none;
     border: none;

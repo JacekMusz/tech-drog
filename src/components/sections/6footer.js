@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { FaPhone } from "react-icons/fa"
 import { FiMail } from "react-icons/fi"
-import LogoAndName from "./../../assets/logo-i-napis.svg"
+import LogoAndName from "./../../assets/svg/logo-i-napis.svg"
 
 const Section = styled.section`
   position: relative;
-  min-height: 20vh;
+
   background-color: #121212;
   width: 96%;
   z-index: 20;
@@ -15,7 +15,7 @@ const Section = styled.section`
   color: white;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   @media (min-width: 360px) {
     padding: 0 5% 5% 5%;
     width: 90%;
@@ -29,12 +29,13 @@ const StyledAdrress = styled.address`
   display: flex;
   flex-direction: column;
   width: 48%;
+  padding-top: 10px;
   .adrress-icon {
     color: white;
     margin-right: 10px;
   }
   h4 {
-    font-size: 14px;
+    font-size: 16px;
     height: 45px;
     line-height: 45px;
     margin: 0;
@@ -47,18 +48,20 @@ const StyledAdrress = styled.address`
 
   @media (min-width: 360px) {
     width: 45%;
+    h4 {
+      font-size: 18px;
+    }
   }
 
   @media (min-width: 410px) {
     h4 {
-      font-size: 15px;
+      font-size: 20px;
     }
     p {
       font-size: 12px;
       line-height: 15px;
     }
   }
-  /* Media for iPad (768px) */
   @media (min-width: 767px) {
     width: 40%;
     h4 {
@@ -66,25 +69,25 @@ const StyledAdrress = styled.address`
     }
     p {
       font-size: 13px;
-      line-height: 16px;
-    }
-  }
-  @media (min-width: 1199px) {
-    h4 {
-      font-size: 18px;
-    }
-    p {
-      font-size: 14px;
       line-height: 18px;
     }
   }
-  @media (min-width: 1599px) {
+  @media (min-width: 1199px) {
     h4 {
       font-size: 20px;
     }
     p {
       font-size: 15px;
-      line-height: 19px;
+      line-height: 21px;
+    }
+  }
+  @media (min-width: 1599px) {
+    h4 {
+      font-size: 22px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 22px;
     }
   }
 `
@@ -97,8 +100,6 @@ const CopyrightWrapper = styled.div`
 `
 
 const sectionFooter = () => {
-  const d = new Date()
-  const currentYear = d.getFullYear()
   return (
     <Section>
       <StyledAdrress>
@@ -127,7 +128,7 @@ const sectionFooter = () => {
         </p>
       </StyledAdrress>
       <CopyrightWrapper>
-        &copy; Copyright {d.getFullYear()}, Tech-Drog Arkadiusz Pydzik
+        &copy; Copyright 2020, Tech-Drog Arkadiusz Pydzik
       </CopyrightWrapper>
     </Section>
   )

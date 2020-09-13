@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import Recaptcha from "react-recaptcha"
 import { FaTimes, FaCheck } from "react-icons/fa"
-import config from "gatsby-plugin-config"
+import { yellowColor } from "./../../assets/colors"
 
 const Section = styled.section`
   min-height: 100vh;
@@ -16,6 +16,7 @@ const Section = styled.section`
 `
 const ContactFormWrapper = styled.div`
   width: 80%;
+  max-width: 1024px;
   min-height: 50vh;
   background-color: rgba(12, 12, 12, 0.9);
   color: white;
@@ -46,7 +47,7 @@ const Title = styled.h3`
   display: block;
   font-size: 16px;
   margin-bottom: 40px;
-  border-left: 5px solid yellow;
+  border-left: 5px solid ${yellowColor};
   padding: 10px 5px;
   @media (min-width: 359px) {
     font-size: 17px;
@@ -76,9 +77,9 @@ const StyledInput = styled.input`
   border-bottom: 1px solid gray;
   resize: none;
   &:focus {
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid ${yellowColor};
     outline: none;
-    color: yellow;
+    color: ${yellowColor};
     background: #141414;
   }
   @media (min-width: 359px) {
@@ -137,10 +138,10 @@ const Button = styled.button`
   min-width: 150px;
   cursor: pointer;
   transition: 0.5s;
-  color: yellow;
+  color: ${yellowColor};
   &:hover {
-    color: yellow;
-    border: 1px solid yellow;
+    color: ${yellowColor};
+    border: 1px solid ${yellowColor};
     background-color: black;
   }
   @media (min-width: 767px) {
