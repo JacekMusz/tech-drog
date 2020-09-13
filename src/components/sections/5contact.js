@@ -290,13 +290,13 @@ const SectionContact = () => {
               Emila Fieldorfa-Nila 30/28 96-300 Żyrardów{" "}
             </StyledLabel>
           </Rodo>
-          {/* <Recaptcha
-              sitekey={"6LdP0aMZAAAAAIB8kcq09G8i3AqXG71iWV6LCR4"} /// .env
-              render="explicit"
-              verifyCallback={verifyCallback}
-              theme="dark"
-              size={normalRecaptcha ? "normal" : "compact"}
-            /> */}
+          <Recaptcha
+            sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} /// .env
+            render="explicit"
+            verifyCallback={verifyCallback}
+            theme="dark"
+            size={normalRecaptcha ? "normal" : "compact"}
+          />
           <Button
             disabled={
               !textAreaCorrect ||
