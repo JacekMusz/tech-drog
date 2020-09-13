@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { FaArrowRight, FaBars } from "react-icons/fa"
 import scrollTo from "gatsby-plugin-smoothscroll"
+import LogoAndName from "./../../assets/logo-i-napis.svg"
 
 const StyledMobileNavigation = styled.nav`
   transform: ${props =>
@@ -66,7 +67,7 @@ const ButtonWrapper = styled.div`
     ${props => (props.pageTopPosition ? "transparent" : "yellow")};
   transition: 0.5s;
   .logo {
-    margin: 0 10px;
+    margin: 0;
     font-weight: 300;
     cursor: pointer;
   }
@@ -105,8 +106,7 @@ const MobileNavigation = props => {
         pageTopPosition={props.pageTopPosition}
       >
         <div onClick={() => scrollTo("#start")} className="logo">
-          {" "}
-          LOGO Tech-drog
+          <LogoAndName className="logo" />
         </div>
         <button
           className="button-bars"

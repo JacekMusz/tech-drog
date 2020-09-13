@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { FaPhone } from "react-icons/fa"
 import { FiMail } from "react-icons/fi"
+import LogoAndName from "./../../assets/logo-i-napis.svg"
 
 const Section = styled.section`
   position: relative;
@@ -32,8 +33,11 @@ const StyledAdrress = styled.address`
     color: white;
     margin-right: 10px;
   }
-  h3 {
+  h4 {
     font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    margin: 0;
   }
   p {
     font-size: 12px;
@@ -46,7 +50,7 @@ const StyledAdrress = styled.address`
   }
 
   @media (min-width: 410px) {
-    h3 {
+    h4 {
       font-size: 15px;
     }
     p {
@@ -57,7 +61,7 @@ const StyledAdrress = styled.address`
   /* Media for iPad (768px) */
   @media (min-width: 767px) {
     width: 40%;
-    h3 {
+    h4 {
       font-size: 16px;
     }
     p {
@@ -66,7 +70,7 @@ const StyledAdrress = styled.address`
     }
   }
   @media (min-width: 1199px) {
-    h3 {
+    h4 {
       font-size: 18px;
     }
     p {
@@ -75,7 +79,7 @@ const StyledAdrress = styled.address`
     }
   }
   @media (min-width: 1599px) {
-    h3 {
+    h4 {
       font-size: 20px;
     }
     p {
@@ -98,7 +102,7 @@ const sectionFooter = () => {
   return (
     <Section>
       <StyledAdrress>
-        <h4>Dane firmy</h4>
+        <LogoAndName />
         <p>
           "Tech-Drog" Arkadiusz Pydzik
           <br />

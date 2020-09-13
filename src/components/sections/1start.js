@@ -160,14 +160,6 @@ const StyledImage = styled(Image)`
 `
 
 const SectionStart = ({ fluid }) => {
-  // const [pageTopPosition, setPageTopPosition] = useState(true)
-  // const listener = window.addEventListener("scroll", function (e) {
-  //   if (window.scrollY > window.innerHeight) {
-  //     setPageTopPosition(false)
-  //   } else {
-  //     setPageTopPosition(true)
-  //   }
-  // })
   const [pageTopPosition, setPageTopPosition] = useState("false")
 
   useEffect(() => {

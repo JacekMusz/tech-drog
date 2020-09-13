@@ -1,12 +1,7 @@
 import React, { lazy, Suspense } from "react"
 import styled from "styled-components"
 import { GlobalStyle } from "../assets/style/globalStyle"
-//import Navigation from "../components/navigation/navigation"
-// import SectionStart from "../components/sections/1start"
-// import SectionAbout from "../components/sections/2about"
-// import SectionReferences from "../components/sections/4references"
-// import SectionContact from "../components/sections/5contact"
-// import SectionFooter from "../components/sections/6footer"
+import PageLoader from "../components/pageLoader"
 
 const SectionsWrapper = lazy(() =>
   import("../components/sections/SectionsWrapper")
@@ -43,7 +38,7 @@ const IndexPage = props => {
     <>
       {" "}
       {!isSSR && (
-        <Suspense fallback={<div>trwa ładownie ...</div>}>
+        <Suspense fallback={<PageLoader />}>
           <GlobalStyle />
           <Navigation />
           <SectionsWrapper data={props.data} />
