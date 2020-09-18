@@ -302,7 +302,7 @@ const SectionContact = () => {
             </StyledLabel>
           </Rodo>
           <Recaptcha
-            sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} /// .env
+            // sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} /// .env
             render="explicit"
             verifyCallback={verifyCallback}
             theme="dark"
