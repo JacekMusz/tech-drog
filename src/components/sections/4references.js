@@ -128,23 +128,23 @@ const SectionReferences = () => {
           instytucjami publicznymi
         </p>
         <StyledArticleSubTitle>
-          Zaufali już nam między innymi:
+          Zaufali nam między innymi:
         </StyledArticleSubTitle>
         <ul className="references__list">
           <li>SKANSKA S.A.</li>
           <li>STRABAG Sp. z o.o.</li>
-          <li>EUROVIA POLSKA S. A.</li>
           <li>PKP Energetyka S.A.</li>
-          <li>DELTA S. A.</li>
+          <li>EUROVIA POLSKA S.A.</li>
+          <li>GLOBAL PARKS POLAND Sp. z o.o.</li>
+          <li>Mimatech Sp. z o.o.</li>
           <li>DROGOMEX Sp. z o.o.</li>
           <li>EL-KOL Sp. z o.o.</li>
-          <li>EUROVIA POLSKA S. A.</li>
-          <li>„GAZ” Sp. z o.o.</li>
-          <li>GLOBAL PARKS POLAND Sp. z o.o.</li>
-          <li>„INSTALBUD” Sp. z o.o.</li>
-          <li>MABAU Polska Sp. z o.o.</li>
           <li>MILLSEN Sp. z o.o.</li>
-          <li>Mimatech Sp. z o.o.</li>
+          <li>EUROVIA POLSKA S.A.</li>
+          <li>„GAZ” Sp. z o.o.</li>
+          <li>„INSTALBUD” Sp. z o.o.</li>
+          <li>DELTA S.A.</li>
+          <li>MABAU Polska Sp. z o.o.</li>
           <li>Miasta i gminy z terenu powiatu żyrardowskiego i grodziskiego</li>
           <li>Mazowiecki Zarząd Dróg Wojewódzkich w Warszawie</li>
         </ul>

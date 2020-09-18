@@ -158,11 +158,11 @@ const sectionAbout = props => {
             <div className="text">
               Biuro projektowe „Tech-Drog” Arkadiusz Pydzik powstało w 2008
               roku. Świadczymy usługi w zakresie projektowania infrastruktury
-              drogowej dla inwestorów prywatnych jak i publicznych. Realizujemy
-              zlecenia na terenie województwa mazowieckiego jak i łódzkiego.
-              Firma współpracuje z wykwalifikowanymi specjalistami z branży
-              drogowej jak i branż infrastruktury towarzyszącej
-              (wodno-kanalizacyjnej, energetycznej, teletechnicznej i gazowej).
+              drogowej dla inwestorów prywatnych oraz publicznych. Realizujemy
+              zlecenia na terenie województwa mazowieckiego i łódzkiego. Firma
+              współpracuje z wykwalifikowanymi specjalistami z branży drogowej,
+              jak i branż infrastruktury towarzyszącej (wodno-kanalizacyjnej,
+              energetycznej, teletechnicznej i gazowej).
             </div>
             <span id="services"> </span>
           </StyledArticle>
@@ -171,7 +171,7 @@ const sectionAbout = props => {
             <StyledArticleTitle>Nasze Usługi</StyledArticleTitle>
             <div className="text">
               Świadczymy kompleksowe usługi w zakresie wykonania dokumentacji
-              projektowej dla:
+              projektowej:
               <ul>
                 <li>
                   <FaRoad className="icon-road" />

@@ -43,15 +43,3 @@ const IndexPage = props => {
 }
 
 export default IndexPage
-
-{
-  /* <AppWrapper id="start">
-        <SectionStart
- fluid={props.data.image1.childImageSharp.fluid}
-        />
-        <SectionAbout fluid={props.data.image2.childImageSharp.fluid} />
-        <SectionReferences />
-        <SectionContact />
-        <SectionFooter />
-      </AppWrapper> */
-}

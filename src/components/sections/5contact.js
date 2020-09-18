@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Recaptcha from "react-recaptcha"
 import { FaTimes, FaCheck } from "react-icons/fa"
 import { yellowColor } from "./../../assets/colors"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Section = styled.section`
   min-height: 100vh;
@@ -34,7 +35,7 @@ const ContactFormWrapper = styled.div`
     font-size: 8px;
     width: 80%;
   }
-  .invalid-signs-notification {
+  .invalid-form-information {
     color: red;
     font-size: 12px;
     width: 90%;
@@ -144,12 +145,6 @@ const Button = styled.button`
     border: 1px solid ${yellowColor};
     background-color: black;
   }
-  @media (min-width: 767px) {
-    width: 200px;
-  }
-  @media (min-width: 1199px) {
-    width: 300px;
-  }
   &:disabled {
     color: #444;
     border: 1px solid #444;
@@ -157,6 +152,21 @@ const Button = styled.button`
       color: #444;
       border: 1px solid #444;
       background-color: transparent;
+      :after {
+        position: absolute;
+        display: block;
+        font-size: 10px;
+        content: "Formularz nie został wypełniony poprawnie";
+        color: red;
+        transform: translateY(10px);
+        right: 0;
+      }
+    }
+    @media (min-width: 767px) {
+      width: 200px;
+    }
+    @media (min-width: 1199px) {
+      width: 300px;
     }
   }
 `
@@ -240,9 +250,9 @@ const SectionContact = () => {
         <Title>Napisz do nas !</Title>
         <form
           className="form"
-          // action="https://formspree.io/mjvawblo"
+          action="https://formspree.io/mjvawblo"
           type="email"
-          //method="POST"
+          method="POST"
         >
           <StyledLabel>Twój email:</StyledLabel>
 
@@ -266,7 +276,7 @@ const SectionContact = () => {
             name="message"
           ></StyledInput>
           {invalidSigns ? (
-            <div className="invalid-signs-notification">
+            <div className="invalid-form-information">
               W wiadomości użyto niedozwolonych znaków specjalnych.
               <br />
               Znaki specjalne jakie możesz użyć to:. , ( ) _ / % + - :
@@ -291,13 +301,13 @@ const SectionContact = () => {
               Emila Fieldorfa-Nila 30/28 96-300 Żyrardów{" "}
             </StyledLabel>
           </Rodo>
-          {/* <Recaptcha
+          <Recaptcha
             sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} /// .env
             render="explicit"
             verifyCallback={verifyCallback}
             theme="dark"
             size={normalRecaptcha ? "normal" : "compact"}
-          /> */}
+          />
           <Button
             disabled={
               !textAreaCorrect ||
@@ -305,12 +315,15 @@ const SectionContact = () => {
               !checkbox ||
               !reCaptchaValidation
             }
-            // type="submit"
+            type="submit"
             onClick={() => alert("wysłano maila")}
           >
             Wyślij
           </Button>
         </form>
+        <Button onClick={() => scrollTo("#footer")}>
+          Zobacz pełne dane kontaktowe
+        </Button>
       </ContactFormWrapper>
     </Section>
   )
