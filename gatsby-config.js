@@ -42,9 +42,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `The Cool Application`,
-        short_name: `Cool App`,
-        description: `The application does cool things and makes your life better.`,
+        name: `Biuro projektowe Tech-Drog Arkadiusz Pydzik`,
+        short_name: `Tech-Drog`,
+        description: `Biuro Projektowe Tech-Drog Arkadiusz Pydzik. Projekty budowlane oraz projekty organizacji ruchu na terenie województw mazowieckiego oraz łódzkiego.`,
         lang: `pl`,
         icon: `src/assets/svg/logo-32x32 SVG.svg`,
         start_url: `/`,
@@ -56,3 +56,6 @@ module.exports = {
     "gatsby-plugin-config",
   ],
 }
+
+name = "description"
+content = ""

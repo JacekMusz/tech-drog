@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react"
 import { GlobalStyle } from "../assets/style/globalStyle"
 import PageLoader from "../components/pageLoader"
 import Helmet from "react-helmet"
+import { graphql } from "gatsby"
 
 const SectionsWrapper = lazy(() =>
   import("../components/sections/SectionsWrapper")
