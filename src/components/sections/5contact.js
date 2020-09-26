@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import Recaptcha from "react-recaptcha"
 import { FaTimes, FaCheck } from "react-icons/fa"
 import { yellowColor } from "./../../assets/colors"
 import scrollTo from "gatsby-plugin-smoothscroll"
@@ -24,7 +23,7 @@ const ContactFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 10px;
+  padding: 30px 10px 10px 10px;
   box-shadow: 0 0 6px -1px black;
   .form {
     display: flex;
@@ -41,6 +40,23 @@ const ContactFormWrapper = styled.div`
     width: 90%;
     text-align: center;
     margin-bottom: 20px;
+  }
+  .contact__full-contact-info-button {
+    align-self: flex-end;
+    margin-bottom: 0;
+    font-size: 9px;
+    @media (min-width: 359px) {
+      font-size: 10px;
+    }
+    @media (min-width: 410px) {
+      font-size: 11px;
+    }
+    @media (min-width: 767px) {
+      font-size: 12px;
+    }
+    @media (min-width: 1199px) {
+      font-size: 15px;
+    }
   }
 `
 
@@ -69,7 +85,7 @@ const StyledInput = styled.input`
   display: block;
   border: none;
   background: #141414;
-  font-size: 12px;
+  font-size: 14px;
   box-shadow: 0 0 6px -1px black;
   color: white;
   height: ${({ as }) => (as ? "300px" : "auto")};
@@ -77,6 +93,7 @@ const StyledInput = styled.input`
   min-width: 200px;
   border-bottom: 1px solid gray;
   resize: none;
+  transform: ${({ as }) => (as ? null : "translate(18px)")};
   &:focus {
     border-bottom: 1px solid ${yellowColor};
     outline: none;
@@ -85,10 +102,12 @@ const StyledInput = styled.input`
   }
   @media (min-width: 359px) {
     min-width: ${({ as }) => (as ? "90%" : "200px")};
+    font-size: ${({ as }) => (as ? "14px" : "16px")};
   }
   @media (min-width: 410px) {
     height: ${({ as }) => (as ? "400px" : "auto")};
     min-width: ${({ as }) => (as ? "90%" : "200px")};
+    font-size: ${({ as }) => (as ? "auto" : "18px")};
   }
   @media (min-width: 767px) {
     height: ${({ as }) => (as ? "500px" : "auto")};
@@ -119,7 +138,7 @@ const StyledInputWrapper = styled.div`
   flex-direction: row;
 
   .email-input-icon {
-    margin-left: 10px;
+    margin-left: 20px;
     transition: 0.5s;
     opacity: ${({ emailLength }) => (emailLength > 1 ? 1 : 0)};
   }
@@ -140,6 +159,8 @@ const Button = styled.button`
   cursor: pointer;
   transition: 0.5s;
   color: ${yellowColor};
+  font-size: 14px;
+  outline: none;
   &:hover {
     color: ${yellowColor};
     border: 1px solid ${yellowColor};
@@ -152,22 +173,19 @@ const Button = styled.button`
       color: #444;
       border: 1px solid #444;
       background-color: transparent;
-      :after {
-        position: absolute;
-        display: block;
-        font-size: 10px;
-        content: "Formularz nie został wypełniony poprawnie";
-        color: red;
-        transform: translateY(10px);
-        right: 0;
-      }
     }
-    @media (min-width: 767px) {
-      width: 200px;
-    }
-    @media (min-width: 1199px) {
-      width: 300px;
-    }
+  }
+  @media (min-width: 359px) {
+    font-size: 16px;
+  }
+  @media (min-width: 410px) {
+    font-size: 18px;
+  }
+  @media (min-width: 767px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1199px) {
+    font-size: 26px;
   }
 `
 
@@ -198,51 +216,19 @@ const SectionContact = () => {
   const [emailValue, setEmailValue] = useState("")
   const [emailCorrect, setEmailCorrect] = useState(false)
   const [textAreaCorrect, setTextAreaCorrect] = useState(false)
-  const [invalidSigns, setInvalidSigns] = useState(false)
   const [checkbox, setCheckbox] = useState(false)
-  const [reCaptchaValidation, setReCaptchaValidation] = useState(false)
-  const [normalRecaptcha, setNormalRecaptcha] = useState("false")
 
   const handleChangeEmailInput = e => {
     setEmailValue(e.target.value)
     setEmailCorrect(
       /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(e.target.value)
     )
-    console.log(textAreaCorrect, emailCorrect)
   }
 
   const handleChangeTextAreaInput = e => {
-    const textAreaProperSigns = []
-    ;[...e.target.value].forEach(sign =>
-      textAreaProperSigns.push(/^[a-zA-Z0-9ąćśńółę.,()_%+-]/i.test(sign))
-    )
-    if (textAreaProperSigns.includes(false)) {
-      setInvalidSigns(true)
-    } else {
-      setInvalidSigns(false)
-    }
-    if (e.target.value.length > 5 && !textAreaProperSigns.includes(false)) {
-      setTextAreaCorrect(true)
-    } else {
-      setTextAreaCorrect(false)
-    }
+    setTextAreaCorrect(true)
   }
 
-  var verifyCallback = function (response) {
-    if (response) {
-      setReCaptchaValidation(true)
-    }
-  }
-  useEffect(() => {
-    console.log()
-    if (window !== undefined) {
-      if (window.innerWidth > 410) {
-        setNormalRecaptcha(true)
-      } else {
-        setNormalRecaptcha(false)
-      }
-    }
-  })
   return (
     <Section>
       <OffsetDiv id="contact"></OffsetDiv>
@@ -275,13 +261,7 @@ const SectionContact = () => {
             type="text"
             name="message"
           ></StyledInput>
-          {invalidSigns ? (
-            <div className="invalid-form-information">
-              W wiadomości użyto niedozwolonych znaków specjalnych.
-              <br />
-              Znaki specjalne jakie możesz użyć to:. , ( ) _ / % + - :
-            </div>
-          ) : null}
+
           <Rodo>
             <StyledInputCheckbox
               onChange={() => setCheckbox(!checkbox)}
@@ -301,27 +281,18 @@ const SectionContact = () => {
               Emila Fieldorfa-Nila 30/28 96-300 Żyrardów{" "}
             </StyledLabel>
           </Rodo>
-          {/* <Recaptcha
-             sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} /// .env
-            render="explicit"
-            verifyCallback={verifyCallback}
-            theme="dark"
-            size={normalRecaptcha ? "normal" : "compact"}
-          /> */}
           <Button
-            disabled={
-              !textAreaCorrect ||
-              !emailCorrect ||
-              !checkbox ||
-              !reCaptchaValidation
-            }
+            disabled={!textAreaCorrect || !emailCorrect || !checkbox}
             type="submit"
             onClick={() => alert("wysłano maila")}
           >
             Wyślij
           </Button>
         </form>
-        <Button onClick={() => scrollTo("#footer")}>
+        <Button
+          className="contact__full-contact-info-button"
+          onClick={() => scrollTo("#footer")}
+        >
           Zobacz pełne dane kontaktowe
         </Button>
       </ContactFormWrapper>

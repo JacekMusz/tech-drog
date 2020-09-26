@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "./../assets/svg/logo-300x100.svg"
-import LogoName from "./../assets/svg/napis-300x100.svg"
 
 const PageLoaderContainer = styled.div`
   width: 100vw;
@@ -18,7 +17,6 @@ const PageLoader = () => {
   return (
     <PageLoaderContainer>
       <Logo />
-
       <p>Trwa ładowanie ...</p>
     </PageLoaderContainer>
   )

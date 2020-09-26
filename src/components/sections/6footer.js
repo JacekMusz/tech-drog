@@ -13,11 +13,15 @@ const Section = styled.section`
   position: relative;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-bottom: 20px;
   @media (min-width: 360px) {
     padding: 0 5% 5% 5%;
     width: 90%;
+  }
+  @media (min-width: 410px) {
+    flex-direction: row;
   }
   @media (min-width: 767px) {
     padding: 0 10% 5% 10%;
@@ -27,9 +31,9 @@ const Section = styled.section`
 const StyledAdrress = styled.address`
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 100%;
   padding-top: 10px;
-
+  padding-left: 10px;
   #logo-and-name-300x80 {
     height: 40px;
     width: 150px;
@@ -43,6 +47,7 @@ const StyledAdrress = styled.address`
     height: 40px;
     padding-top: 2px;
     margin: 0;
+    font-style: normal;
   }
   p {
     font-size: 12px;
@@ -51,14 +56,13 @@ const StyledAdrress = styled.address`
   }
 
   @media (min-width: 360px) {
-    width: 45%;
-
     h4 {
       font-size: 22px;
     }
   }
 
   @media (min-width: 410px) {
+    width: 45%;
     h4 {
       font-size: 22px;
     }

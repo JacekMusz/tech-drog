@@ -1,5 +1,4 @@
 import React from "react"
-
 import styled from "styled-components"
 import SectionStart from "./1start"
 import SectionAbout from "./2about"
