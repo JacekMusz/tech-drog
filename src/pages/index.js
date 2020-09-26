@@ -53,6 +53,7 @@ const IndexPage = props => {
           name="description"
           content="Biuro Projektowe Tech-Drog Arkadiusz Pydzik. Projekty budowlane oraz projekty organizacji ruchu na terenie województw mazowieckiego oraz łódzkiego."
         />
+        <link rel="icon" href={"./../assets/images/logo-32x32.jpg"} />
       </Helmet>
       {!isSSR && (
         <Suspense fallback={<PageLoader />}>

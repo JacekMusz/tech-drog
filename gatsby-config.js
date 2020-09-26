@@ -39,10 +39,20 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The Cool Application`,
+        short_name: `Cool App`,
+        description: `The application does cool things and makes your life better.`,
+        lang: `pl`,
+        icon: `src/assets/svg/logo-32x32 SVG.svg`,
+        start_url: `/`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-smoothscroll`,
-    `gatsby-plugin-recaptcha`,
     "gatsby-plugin-config",
   ],
 }
