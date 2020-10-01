@@ -9,22 +9,21 @@ const Section = styled.section`
   background-color: #121212;
   width: 96%;
   z-index: 20;
-  padding: 0 2% 5% 2%;
+  padding: 0 2% 10% 2%;
   position: relative;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 20px;
   @media (min-width: 360px) {
-    padding: 0 5% 5% 5%;
+    padding: 0 5% 10% 5%;
     width: 90%;
   }
   @media (min-width: 410px) {
     flex-direction: row;
   }
   @media (min-width: 767px) {
-    padding: 0 10% 5% 10%;
+    padding: 0 10% 10% 10%;
     width: 80%;
   }
 `
@@ -153,6 +152,8 @@ const sectionFooter = () => {
       </StyledAdrress>
       <CopyrightWrapper>
         &copy; Copyright 2020, Tech-Drog Arkadiusz Pydzik
+        <br />
+        Created and design by Jacek Muszyński
       </CopyrightWrapper>
     </Section>
   )

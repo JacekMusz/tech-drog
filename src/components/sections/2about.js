@@ -11,6 +11,7 @@ const Section = styled.section`
   margin-top: 100vh;
   color: black;
   height: 100%;
+  padding-top: 20px;
 `
 
 const StyledBackgroundImage = styled(BackgroundImage)`
@@ -27,6 +28,7 @@ const SectionContent = styled.div`
   color: white;
   margin: auto;
   padding: 10px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -39,8 +41,8 @@ const SectionContent = styled.div`
   .article-three {
     margin-bottom: 50px;
   }
-
   @media (min-width: 767px) {
+    padding-top: 0;
     padding: 5%;
   }
 `
@@ -82,9 +84,8 @@ const StyledArticleTitle = styled.h3`
 
 const StyledArticle = styled.div`
   width: 100%;
-  margin-bottom: 50px;
   max-width: 1024px;
-  margin: auto;
+  margin-bottom: 40px;
   .text {
     font-size: 13px;
     line-height: 20px;
@@ -140,6 +141,9 @@ const StyledArticle = styled.div`
       line-height: 28px;
     }
   }
+  @media (min-width: 1024px) {
+    margin-bottom: 60px;
+  }
   @media (min-width: 1199px) {
     .text {
       font-size: 19px;
@@ -166,7 +170,7 @@ const sectionAbout = props => {
             </div>
             <span id="services"> </span>
           </StyledArticle>
-
+          <div style={{ height: "20px", width: "100%" }}></div>
           <StyledArticle>
             <StyledArticleTitle>Nasze Usługi</StyledArticleTitle>
             <div className="text">

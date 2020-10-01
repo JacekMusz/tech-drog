@@ -240,13 +240,13 @@ const SectionContact = () => {
           type="email"
           method="POST"
         >
-          <StyledLabel>Twój email:</StyledLabel>
-
+          <StyledLabel for="mailInput">Twój email:</StyledLabel>
           <StyledInputWrapper emailLength={emailValue.length}>
             <StyledInput
               onChange={e => handleChangeEmailInput(e)}
               type="text"
-              name="_replyto"
+              name="mailInput"
+              id="mailInput"
             ></StyledInput>
             {emailCorrect ? (
               <FaCheck className="email-input-icon correct" />
@@ -254,12 +254,13 @@ const SectionContact = () => {
               <FaTimes className="email-input-icon incorrect" />
             )}
           </StyledInputWrapper>
-          <StyledLabel>Twoja wiadomość:</StyledLabel>
+          <StyledLabel for="message">Twoja wiadomość:</StyledLabel>
           <StyledInput
             onChange={e => handleChangeTextAreaInput(e)}
             as="textarea"
             type="text"
             name="message"
+            id="message"
           ></StyledInput>
 
           <Rodo>
@@ -267,8 +268,10 @@ const SectionContact = () => {
               onChange={() => setCheckbox(!checkbox)}
               className="contact__rodo-checkbox"
               type="checkbox"
+              name="rodo-checkbox"
+              id="rodo-checkbox"
             ></StyledInputCheckbox>
-            <StyledLabel className="contact__rodo-text">
+            <StyledLabel for="rodo-checkbox" className="contact__rodo-text">
               Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą o
               ochronie danych osobowych w związku z wysłaniem zapytania przez
               formularz kontaktowy. Podanie danych jest dobrowolne, ale
