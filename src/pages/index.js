@@ -14,7 +14,7 @@ export const query = graphql`
     image1: file(name: { eq: "hero-image" }) {
       childImageSharp {
         fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

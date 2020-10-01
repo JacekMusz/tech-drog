@@ -35,7 +35,7 @@ const StyledMobileNavigation = styled.nav`
       border-bottom: 1px solid #333;
     }
   }
-  .button-arrow {
+  .menu-arrow {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -72,7 +72,7 @@ const ButtonWrapper = styled.div`
 
     cursor: pointer;
   }
-  .button-bars {
+  .menu-bars {
     width: 50px;
     height: 50px;
     padding: 8px;
@@ -112,7 +112,7 @@ const MobileNavigation = props => {
           <LogoAndName className="logo" />
         </div>
         <button
-          className="button-bars"
+          className="menu-bars"
           onClick={() => setNavigationShowed(!navigationShowed)}
         >
           {navigationShowed ? null : <FaBars />}
@@ -123,7 +123,7 @@ const MobileNavigation = props => {
         pageTopPosition={props.pageTopPosition}
       >
         <button
-          className="button-arrow"
+          className="menu-arrow"
           onClick={() => setNavigationShowed(!navigationShowed)}
         >
           {navigationShowed ? <FaArrowRight /> : null}
