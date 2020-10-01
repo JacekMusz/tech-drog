@@ -288,6 +288,7 @@ const SectionContact = () => {
             disabled={!textAreaCorrect || !emailCorrect || !checkbox}
             type="submit"
             onClick={() => alert("wysłano maila")}
+            aria-label="send-message"
           >
             Wyślij
           </Button>
@@ -295,6 +296,7 @@ const SectionContact = () => {
         <Button
           className="contact__full-contact-info-button"
           onClick={() => scrollTo("#footer")}
+          aria-label="show-full-contact-info"
         >
           Zobacz pełne dane kontaktowe
         </Button>

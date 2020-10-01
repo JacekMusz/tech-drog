@@ -112,7 +112,7 @@ const MobileNavigation = props => {
           <LogoAndName className="logo" />
         </div>
         <button
-          aria-label="Show-menu"
+          aria-label="show-menu"
           className="menu-bars"
           onClick={() => setNavigationShowed(!navigationShowed)}
         >
@@ -124,7 +124,7 @@ const MobileNavigation = props => {
         pageTopPosition={props.pageTopPosition}
       >
         <button
-          aria-label="Close-menu"
+          aria-label="close-menu"
           className="menu-arrow"
           onClick={() => setNavigationShowed(!navigationShowed)}
         >
