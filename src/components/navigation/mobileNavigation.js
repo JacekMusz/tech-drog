@@ -14,7 +14,7 @@ const StyledMobileNavigation = styled.nav`
   top: 0;
   right: 0;
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: 100vh;
   background-color: rgba(12, 12, 12, 1);
   color: white;
   font-size: 2rem;
@@ -29,7 +29,7 @@ const StyledMobileNavigation = styled.nav`
     height: 70%;
     justify-content: space-around;
     li {
-      width: 90%;
+      width: 100%;
       list-style: none;
       font-size: 1.5rem;
       border-bottom: 1px solid #333;
@@ -38,7 +38,7 @@ const StyledMobileNavigation = styled.nav`
   .menu-arrow {
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     background-color: transparent;
     outline: none;
     border: none;

@@ -9,14 +9,14 @@ const Section = styled.section`
   background-color: #121212;
   width: 96%;
   z-index: 20;
-  padding: 0 2% 10% 2%;
+  padding: 0 2% 20% 2%;
   position: relative;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   @media (min-width: 360px) {
-    padding: 0 5% 10% 5%;
+    padding: 0 5% 20% 5%;
     width: 90%;
   }
   @media (min-width: 410px) {
@@ -114,11 +114,16 @@ const StyledAdrress = styled.address`
   }
 `
 
-const CopyrightWrapper = styled.div`
+const CopyrightAndAuthorWrapper = styled.div`
   position: absolute;
   bottom: 5px;
-  right: 10px;
-  font-size: 8px;
+  padding: 25px 5px 5px 5px;
+  font-size: 10px;
+  width: calc(90%);
+  div {
+    padding: 5px 5px 0 0;
+    font-size: 8px;
+  }
 `
 
 const sectionFooter = () => {
@@ -150,11 +155,11 @@ const sectionFooter = () => {
           biuro@tech-drog.pl
         </p>
       </StyledAdrress>
-      <CopyrightWrapper>
+      <CopyrightAndAuthorWrapper>
         &copy; Copyright 2020, Tech-Drog Arkadiusz Pydzik
         <br />
-        Created and design by Jacek Muszyński
-      </CopyrightWrapper>
+        <div>Created and design by Jacek Muszyński</div>
+      </CopyrightAndAuthorWrapper>
     </Section>
   )
 }
