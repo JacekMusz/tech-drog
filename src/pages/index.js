@@ -13,15 +13,15 @@ export const query = graphql`
   {
     image1: file(name: { eq: "hero-image" }) {
       childImageSharp {
-        fluid(quality: 100) {
+        fluid(quality: 70) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     image2: file(name: { eq: "background" }) {
       childImageSharp {
-        fluid(quality: 20) {
-          ...GatsbyImageSharpFluid_tracedSVG
+        fluid(quality: 10) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

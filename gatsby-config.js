@@ -1,8 +1,3 @@
-require("dotenv").config({
-  path: `.env`,
-})
-const config = require("gatsby-plugin-config")
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -59,6 +54,3 @@ module.exports = {
     "gatsby-plugin-config",
   ],
 }
-
-name = "description"
-content = ""
