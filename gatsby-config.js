@@ -13,8 +13,17 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-web-font-loader",
-      google: {
-        families: ["Droid Sans", "DIN Pro", "Droid Serif", "Montserrat"],
+      options: {
+        google: {
+          families: [
+            "Droid Sans",
+            "Droid Serif",
+            "Montserrat",
+            "Fondamento",
+            "Merriweather",
+            "Cinzel",
+          ],
+        },
       },
     },
     {
