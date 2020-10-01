@@ -27,7 +27,7 @@ const Navigation = () => {
     color: white;
     transition: 1s;
     transform: ${props =>
-      props.pageTopPosition ? "translate(0, -50px)" : "translate(0, 0px)"};
+      props.pageTopPosition ? "translate(0, -50px)" : "translate(0, 0)"};
   `
 
   return (
